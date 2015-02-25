@@ -28,12 +28,12 @@ namespace NISOCountries.Tests
             var r = new RipeReader(s).Parse(@"Test\fixtures\ripe_testfile.txt");
             var g = new GeonamesReader(s).Parse(@"Test\fixtures\geonames_testfile.txt");
 
-            var qqq = w.OrderBy(c => c.Alpha2).SequenceEqual(h.OrderBy(q => q.Alpha2), new WikipediaComparer());
+            //var qqq = w.OrderBy(c => c.Alpha2).SequenceEqual(h.OrderBy(cq => cq.Alpha2), new WikipediaComparer());
 
-            //var q = r.Cast<IISORecord>()
-            //    .Union(w.Cast<IISORecord>())
-            //    .Union(g.Cast<IISORecord>())
-            //    .ToArray();
+            var q = r.Cast<IISORecord>()
+                .Union(w.Cast<IISORecord>())
+                .Union(g.Cast<IISORecord>())
+                .ToArray();
 
             var x1 = new ISOCountryLookup<IISORecord>(w);
             var x2 = new ISOCountryLookup<IISORecord>(h);

@@ -9,8 +9,8 @@ namespace NISOCountries.Wikipedia
         public WikipediaComparer()
             : base() { }
 
-        public WikipediaComparer(StringComparison stringComparison)
-            : base(stringComparison) { }
+        public WikipediaComparer(bool ignoreCase)
+            : base(ignoreCase) { }
 
         public override bool Equals(WikipediaRecord x, WikipediaRecord y)
         {

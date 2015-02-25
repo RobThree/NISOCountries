@@ -6,14 +6,17 @@ namespace NISOCountries.Core
     public class ISORecordComparer<T> : IEqualityComparer<T>
         where T : IISORecord
     {
-        public StringComparison StringComparison { get; private set; }
+        private static string n = string.Empty;
+
+        public bool IsCaseSensitive { get; private set; }
+        protected StringComparison StringComparison { get { return this.IsCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase; } }
 
         public ISORecordComparer()
-            : this(StringComparison.OrdinalIgnoreCase) { }
+            : this(true) { }
 
-        public ISORecordComparer(StringComparison stringComparison)
+        public ISORecordComparer(bool ignoreCase)
         {
-            this.StringComparison = stringComparison;
+            this.IsCaseSensitive = !ignoreCase;
         }
 
         public virtual bool Equals(T x, T y)
@@ -26,12 +29,15 @@ namespace NISOCountries.Core
             if (object.ReferenceEquals(x, null) || object.ReferenceEquals(y, null))
                 return false;
 
+            var sc = this.StringComparison;
+
             // Compare properties
-            return string.Equals(x.Alpha2, y.Alpha2)
-                && string.Equals(x.Alpha3, y.Alpha3)
-                && string.Equals(x.Numeric, y.Numeric)
-                && string.Equals(x.CountryName, y.CountryName);
+            return string.Equals(x.Alpha2, y.Alpha2, sc)
+                && string.Equals(x.Alpha3, y.Alpha3, sc)
+                && string.Equals(x.Numeric, y.Numeric, sc)
+                && string.Equals(x.CountryName, y.CountryName, sc);
         }
+
 
         public virtual int GetHashCode(T obj)
         {
@@ -41,14 +47,21 @@ namespace NISOCountries.Core
             unchecked // Overflow is fine, just wrap
             {
                 int hash = (int)2166136261;
-                string n = string.Empty;
 
-                hash = hash * 16777619 ^ (obj.Alpha2 ?? n).GetHashCode();
-                hash = hash * 16777619 ^ (obj.Alpha3 ?? n).GetHashCode();
-                hash = hash * 16777619 ^ (obj.Numeric ?? n).GetHashCode();
-                hash = hash * 16777619 ^ (obj.CountryName ?? n).GetHashCode();
+                hash = hash * 16777619 ^ GetStringHash(obj.Alpha2);
+                hash = hash * 16777619 ^ GetStringHash(obj.Alpha3);
+                hash = hash * 16777619 ^ GetStringHash(obj.Numeric);
+                hash = hash * 16777619 ^ GetStringHash(obj.CountryName);
                 return hash;
             }
+        }
+
+        protected int GetStringHash(string value)
+        {
+            if (this.IsCaseSensitive)
+                return (value ?? n).GetHashCode();
+            else
+                return (value ?? n).ToLowerInvariant().GetHashCode();
         }
 
         bool IEqualityComparer<T>.Equals(T x, T y)

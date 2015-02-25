@@ -9,8 +9,8 @@ namespace NISOCountries.Ripe
         public RipeComparer()
             : base() { }
 
-        public RipeComparer(StringComparison stringComparison)
-            : base(stringComparison) { }
+        public RipeComparer(bool ignoreCase)
+            : base(ignoreCase) { }
 
         public override bool Equals(RipeRecord x, RipeRecord y)
         {
