@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISOCountryLookup.cs" />
     <Compile Include="ValueNormalizers\BaseNormalizer.cs" />
     <Compile Include="BaseReader.cs" />
     <Compile Include="SourceProviders\FileSource.cs" />
