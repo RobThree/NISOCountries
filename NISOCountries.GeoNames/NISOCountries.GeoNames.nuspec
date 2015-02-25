@@ -3,7 +3,7 @@
   <metadata>
     <id>NISOCountries.GeoNames</id>
     <title>NISOCountries.GeoNames</title>
-    <version>1.0.0.0</version>
+    <version>1.1.0.0</version>
     <authors>RobIII</authors>
     <owners>RobIII</owners>
     <projectUrl>https://github.com/RobThree/NISOCountries</projectUrl>
@@ -20,7 +20,7 @@
     </releaseNotes>
     <tags>iso3166,iso3166-1,country,globalization,geonames</tags>
     <dependencies>
-      <dependency id="NISOCountries.Core" version="[1.0,)" />
+      <dependency id="NISOCountries.Core" version="[1.1,)" />
     </dependencies>
   </metadata>
   <files>

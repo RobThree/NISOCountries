@@ -27,11 +27,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NISOCountries.Core\NISOCountries.Core.nuspec = NISOCountries.Core\NISOCountries.Core.nuspec
 		NISOCountries.GeoNames\NISOCountries.GeoNames.nuspec = NISOCountries.GeoNames\NISOCountries.GeoNames.nuspec
 		NISOCountries.Ripe\NISOCountries.Ripe.nuspec = NISOCountries.Ripe\NISOCountries.Ripe.nuspec
+		NISOCountries.Wikipedia.CSQ\NISOCountries.Wikipedia.CSQ.nuspec = NISOCountries.Wikipedia.CSQ\NISOCountries.Wikipedia.CSQ.nuspec
+		NISOCountries.Wikipedia.HAP\NISOCountries.Wikipedia.HAP.nuspec = NISOCountries.Wikipedia.HAP\NISOCountries.Wikipedia.HAP.nuspec
 		NISOCountries.Wikipedia\NISOCountries.Wikipedia.nuspec = NISOCountries.Wikipedia\NISOCountries.Wikipedia.nuspec
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.WikipediaHAP", "NISOCountries.WikipediaHAP\NISOCountries.WikipediaHAP.csproj", "{B823A112-C7A2-4D4A-B6B3-2E748B9AC035}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Wikipedia.HAP", "NISOCountries.Wikipedia.HAP\NISOCountries.Wikipedia.HAP.csproj", "{B823A112-C7A2-4D4A-B6B3-2E748B9AC035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Wikipedia.CSQ", "NISOCountries.Wikipedia.CSQ\NISOCountries.Wikipedia.CSQ.csproj", "{52AD50A5-75F4-4791-AD93-9C3743DE41F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,10 @@ Global
 		{B823A112-C7A2-4D4A-B6B3-2E748B9AC035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B823A112-C7A2-4D4A-B6B3-2E748B9AC035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B823A112-C7A2-4D4A-B6B3-2E748B9AC035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52AD50A5-75F4-4791-AD93-9C3743DE41F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52AD50A5-75F4-4791-AD93-9C3743DE41F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52AD50A5-75F4-4791-AD93-9C3743DE41F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52AD50A5-75F4-4791-AD93-9C3743DE41F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

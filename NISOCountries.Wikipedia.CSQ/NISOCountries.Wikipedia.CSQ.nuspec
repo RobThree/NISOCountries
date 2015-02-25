@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>NISOCountries.Wikipedia</id>
-    <title>NISOCountries.Wikipedia</title>
+    <id>NISOCountries.Wikipedia.CSQ</id>
+    <title>NISOCountries.Wikipedia.CSQ</title>
     <version>1.1.0.0</version>
     <authors>RobIII</authors>
     <owners>RobIII</owners>
@@ -11,9 +11,9 @@
     <licenseUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/LICENSE</licenseUrl>
     <copyright>Copyright (c) 2015 Rob Janssen</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>NISOCountries is a library for keeping your list of ISO-3166-1 data up-to-date. This package provides baseclasses for wikipedia implementations.</description>
+    <description>NISOCountries is a library for keeping your list of ISO 3166-1 data up-to-date. This package provides an implementation for wikipedia.org.</description>
     <summary>
-      Provides classes and methods for reading and handling of ISO-3166-1 data from generic wikipedia sources.
+      Provides classes and methods for reading ISO 3166-1 data from wikipedia.org.
     </summary>
     <releaseNotes>
       * Initial version
@@ -21,11 +21,12 @@
     <tags>iso3166,iso3166-1,country,globalization,wikipedia</tags>
     <dependencies>
       <dependency id="NISOCountries.Core" version="[1.1,)" />
+      <dependency id="NISOCountries.Wikipedia" version="[1.1,)" />
       <dependency id="CsQuery" version="[1.3.4]" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\NISOCountries.Wikipedia.dll" target="lib\net40" />
-    <file src="bin\Release\NISOCountries.Wikipedia.XML" target="lib\net40" />
+    <file src="bin\Release\NISOCountries.Wikipedia.CSQ.dll" target="lib\net40" />
+    <file src="bin\Release\NISOCountries.Wikipedia.CSQ.XML" target="lib\net40" />
   </files>
 </package>

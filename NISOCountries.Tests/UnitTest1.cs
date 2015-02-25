@@ -3,7 +3,8 @@ using NISOCountries.Core.SourceProviders;
 using NISOCountries.GeoNames;
 using NISOCountries.Ripe;
 using NISOCountries.Wikipedia;
-using hap = NISOCountries.WikipediaHAP;
+using csq = NISOCountries.Wikipedia.CSQ;
+using hap = NISOCountries.Wikipedia.HAP;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Text;
@@ -22,15 +23,10 @@ namespace NISOCountries.Tests
         public void TestMethod1()
         {
             var s = GetTestFileReader();
-            var w = new WikipediaReader(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
+            var w = new csq.WikipediaReader(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
             var h = new hap.WikipediaReader(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
             var r = new RipeReader(s).Parse(@"Test\fixtures\ripe_testfile.txt");
             var g = new GeonamesReader(s).Parse(@"Test\fixtures\geonames_testfile.txt");
-
-            var xr = new ISORecord { };
-            var yr = new ISORecord { };
-            var cc = new ISORecordComparer<ISORecord>();
-            var cres = cc.Equals(xr, yr);
 
             var qqq = w.OrderBy(c => c.Alpha2).Cast<ISORecord>().SequenceEqual(h.Cast<ISORecord>().OrderBy(q => q.Alpha2), new ISORecordComparer<ISORecord>());
 
@@ -40,12 +36,14 @@ namespace NISOCountries.Tests
             //    .ToArray();
 
             var x1 = new ISOCountryLookup<IISORecord>(w);
-            var x2 = new ISOCountryLookup<IISORecord>(r);
-            var x3 = new ISOCountryLookup<IISORecord>(g);
+            var x2 = new ISOCountryLookup<IISORecord>(h);
+            var x3 = new ISOCountryLookup<IISORecord>(r);
+            var x4 = new ISOCountryLookup<IISORecord>(g);
 
-            var x4 = new ISOCountryLookup<WikipediaRecord>(new WikipediaReader(s), @"Test\fixtures\wikipedia_testfile.htm");
-            var x5 = new ISOCountryLookup<RipeRecord>(new RipeReader(s), @"Test\fixtures\ripe_testfile.txt");
-            var x6 = new ISOCountryLookup<GeonamesRecord>(new GeonamesReader(s), @"Test\fixtures\geonames_testfile.txt");
+            var x5 = new ISOCountryLookup<WikipediaRecord>(new csq.WikipediaReader(s), @"Test\fixtures\wikipedia_testfile.htm");
+            var x6 = new ISOCountryLookup<WikipediaRecord>(new hap.WikipediaReader(s), @"Test\fixtures\wikipedia_testfile.htm");
+            var x7 = new ISOCountryLookup<RipeRecord>(new RipeReader(s), @"Test\fixtures\ripe_testfile.txt");
+            var x8 = new ISOCountryLookup<GeonamesRecord>(new GeonamesReader(s), @"Test\fixtures\geonames_testfile.txt");
 
             var r1 = x1.GetByAlpha2("nl");
             var r2 = x1.GetByAlpha2("NL");
