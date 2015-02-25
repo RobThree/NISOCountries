@@ -21,9 +21,9 @@ namespace NISOCountries.Tests
         public void TestMethod1()
         {
             var s = GetTestFileReader();
-            var w = new WikipediaReader(s).Parse(@"Testdata\wikipedia_testfile.htm");
-            var r = new RipeReader(s).Parse(@"Testdata\ripe_testfile.txt");
-            var g = new GeonamesReader(s).Parse(@"Testdata\geonames_testfile.txt");
+            var w = new WikipediaReader(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
+            var r = new RipeReader(s).Parse(@"Test\fixtures\ripe_testfile.txt");
+            var g = new GeonamesReader(s).Parse(@"Test\fixtures\geonames_testfile.txt");
 
             var q = r.Cast<IISORecord>()
                 .Union(w.Cast<IISORecord>())

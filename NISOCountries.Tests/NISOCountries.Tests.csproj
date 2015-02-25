@@ -72,13 +72,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Testdata\geonames_testfile.txt">
+    <Content Include="Test\fixtures\geonames_testfile.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Testdata\ripe_testfile.txt">
+    <Content Include="Test\fixtures\ripe_testfile.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Testdata\wikipedia_testfile.htm">
+    <Content Include="Test\fixtures\wikipedia_testfile.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
