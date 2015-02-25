@@ -28,7 +28,7 @@ namespace NISOCountries.Tests
             var r = new RipeReader(s).Parse(@"Test\fixtures\ripe_testfile.txt");
             var g = new GeonamesReader(s).Parse(@"Test\fixtures\geonames_testfile.txt");
 
-            var qqq = w.OrderBy(c => c.Alpha2).Cast<ISORecord>().SequenceEqual(h.Cast<ISORecord>().OrderBy(q => q.Alpha2), new ISORecordComparer<ISORecord>());
+            var qqq = w.OrderBy(c => c.Alpha2).SequenceEqual(h.OrderBy(q => q.Alpha2), new WikipediaComparer());
 
             //var q = r.Cast<IISORecord>()
             //    .Union(w.Cast<IISORecord>())

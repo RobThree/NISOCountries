@@ -9,14 +9,14 @@ namespace NISOCountries.Core
         public StringComparison StringComparison { get; private set; }
 
         public ISORecordComparer()
-            : this(StringComparison.Ordinal) { }
+            : this(StringComparison.OrdinalIgnoreCase) { }
 
         public ISORecordComparer(StringComparison stringComparison)
         {
             this.StringComparison = stringComparison;
         }
 
-        public bool Equals(T x, T y)
+        public virtual bool Equals(T x, T y)
         {
             // If reference same object including null then return true
             if (object.ReferenceEquals(x, y))
@@ -33,7 +33,7 @@ namespace NISOCountries.Core
                 && string.Equals(x.CountryName, y.CountryName);
         }
 
-        public int GetHashCode(T obj)
+        public virtual int GetHashCode(T obj)
         {
             if (obj == null)
                 return 0;
