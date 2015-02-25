@@ -18,6 +18,8 @@ namespace NISOCountries.Core.SourceProviders
 
         public TimeSpan DefaultTTL { get; set; }
 
+        public TimeSpan Timeout { get; set; }
+
         public Encoding Encoding { get; private set; }
 
         public static readonly string USERAGENT = string.Format("{0} v{1}", typeof(CachingWebSource).Assembly.GetName().Name, typeof(CachingWebSource).Assembly.GetName().Version.ToString());
@@ -32,9 +34,13 @@ namespace NISOCountries.Core.SourceProviders
             : this(defaultTtl, Encoding.UTF8) { }
 
         public CachingWebSource(TimeSpan defaultTtl, Encoding encoding)
+            : this(defaultTtl, encoding, TimeSpan.FromSeconds(30)) { }
+
+        public CachingWebSource(TimeSpan defaultTtl, Encoding encoding, TimeSpan timeOut)
         {
             this.DefaultTTL = defaultTtl;
             this.Encoding = encoding;
+            this.Timeout = timeOut;
         }
 
         public StreamReader GetStreamReader(string uri)
@@ -47,7 +53,7 @@ namespace NISOCountries.Core.SourceProviders
         {
             if (IsFileExpired(destinationpath, this.DefaultTTL))
             {
-                using (var w = new WebClient())
+                using (var w = new TimedWebClient(this.Timeout))
                 {
                     w.CachePolicy = this.CachePolicy;
                     w.Credentials = this.Credentials;
@@ -76,6 +82,26 @@ namespace NISOCountries.Core.SourceProviders
             {
                 return string.Join(null, ha.ComputeHash(Encoding.Unicode.GetBytes(value.ToLowerInvariant().ToString()))
                     .Select(v => v.ToString("x2")));
+            }
+        }
+
+        /// <summary>
+        /// Simple "wrapper class" providing timeouts.
+        /// </summary>
+        private class TimedWebClient : WebClient
+        {
+            public int Timeout { get; set; }
+
+            public TimedWebClient(TimeSpan timeout)
+            {
+                this.Timeout = (int)Math.Max(0, timeout.TotalMilliseconds);
+            }
+
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                var wr = base.GetWebRequest(address);
+                wr.Timeout = this.Timeout;
+                return wr;
             }
         }
     }
