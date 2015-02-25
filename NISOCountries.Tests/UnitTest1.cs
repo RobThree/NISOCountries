@@ -32,7 +32,10 @@ namespace NISOCountries.Tests
 
             var q = r.Cast<IISORecord>()
                 .Union(w.Cast<IISORecord>())
+                .Union(h.Cast<IISORecord>())
                 .Union(g.Cast<IISORecord>())
+                .OrderBy(i => i.Alpha2)
+                .ThenBy(i => i.CountryName)
                 .ToArray();
 
             var x1 = new ISOCountryLookup<IISORecord>(w);
@@ -48,8 +51,8 @@ namespace NISOCountries.Tests
             var r1 = x1.GetByAlpha2("nl");
             var r2 = x1.GetByAlpha2("NL");
 
-            var r3 = x2.GetByNumeric("036");
-            var r4 = x2.GetByNumeric(36);
+            var r3 = x2.GetByNumeric("634");
+            var r4 = x2.GetByNumeric(634);
 
             var r5 = x3.GetByAlpha3("NLD");
 
