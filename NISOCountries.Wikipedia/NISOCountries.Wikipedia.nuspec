@@ -11,14 +11,14 @@
     <licenseUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/LICENSE</licenseUrl>
     <copyright>Copyright (c) 2015 Rob Janssen</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>NISOCountries is a library for keeping your list of ISO 3611 data up-to-date. This package provides an implementation for wikipedia.org.</description>
+    <description>NISOCountries is a library for keeping your list of ISO 3166-1 data up-to-date. This package provides an implementation for wikipedia.org.</description>
     <summary>
-      Provides classes and methods for reading ISO 3611 data from wikipedia.org.
+      Provides classes and methods for reading ISO 3166-1 data from wikipedia.org.
     </summary>
     <releaseNotes>
       * Initial version
     </releaseNotes>
-    <tags>iso3166,country,globalization,wikipedia</tags>
+    <tags>iso3166,iso3166-1,country,globalization,wikipedia</tags>
     <dependencies>
       <dependency id="NISOCountries.Core" version="[1.0,)" />
       <dependency id="CsQuery" version="[1.3.4]" />

@@ -11,14 +11,14 @@
     <licenseUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/LICENSE</licenseUrl>
     <copyright>Copyright (c) 2015 Rob Janssen</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>NISOCountries is a library for keeping your list of ISO-3611 data up-to-date. This package provides baseclasses and interfaces.</description>
+    <description>NISOCountries is a library for keeping your list of ISO-3166-1 data up-to-date. This package provides baseclasses and interfaces.</description>
     <summary>
-      Provides classes and methods for reading and handling of ISO-3611 data from generic sources.
+      Provides classes and methods for reading and handling of ISO-3166-1 data from generic sources.
     </summary>
     <releaseNotes>
       * Initial version
     </releaseNotes>
-    <tags>iso3166,country,globalization</tags>
+    <tags>iso3166,iso3166-1,country,globalization</tags>
   </metadata>
   <files>
     <file src="bin\Release\NISOCountries.Core.dll" target="lib\net40-client" />
