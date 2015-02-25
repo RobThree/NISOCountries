@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NISOCountries.Core</id>
+    <title>NISOCountries.Core</title>
+    <version>1.0.0.0</version>
+    <authors>RobIII</authors>
+    <owners>RobIII</owners>
+    <projectUrl>https://github.com/RobThree/NISOCountries</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/NISOCountries.Core/Resources/ISO64.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NISOCountries is a library for keeping your list of ISO-3611 data up-to-date. This package provides baseclasses and interfaces.</description>
+    <summary>
+      Provides classes and methods for reading and handling of ISO-3611 data from generic sources.
+    </summary>
+    <releaseNotes>
+      * Initial version
+    </releaseNotes>
+    <tags>iso3166,country,globalization</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\NISOCountries.Core.dll" target="lib\net40-client" />
+    <file src="bin\Release\NISOCountries.Core.XML" target="lib\net40-client" />
+  </files>
+</package>

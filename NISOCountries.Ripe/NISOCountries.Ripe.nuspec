@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NISOCountries.Ripe</id>
+    <title>NISOCountries.Ripe</title>
+    <version>1.0.0.0</version>
+    <authors>RobIII</authors>
+    <owners>RobIII</owners>
+    <projectUrl>https://github.com/RobThree/NISOCountries</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/NISOCountries.Ripe/Resources/ripe64.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NISOCountries is a library for keeping your list of ISO 3611 data up-to-date. This package provides an implementation for ripe.net.</description>
+    <summary>
+      Provides classes and methods for reading ISO 3611 data from ripe.net.
+    </summary>
+    <releaseNotes>
+      * Initial version
+    </releaseNotes>
+    <tags>iso3166,country,globalization,ripe</tags>
+    <dependencies>
+      <dependency id="NISOCountries.Core" version="[1.0,)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\NISOCountries.Ripe.dll" target="lib\net40-client" />
+    <file src="bin\Release\NISOCountries.Ripe.XML" target="lib\net40-client" />
+  </files>
+</package>
