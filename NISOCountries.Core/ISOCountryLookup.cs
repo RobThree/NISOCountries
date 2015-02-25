@@ -131,12 +131,12 @@ namespace NISOCountries.Core
             if (code == null)
                 throw new ArgumentNullException();
 
+            if (_numericregex.IsMatch(code))
+                return TryGetByNumeric(code, out result);
+
             if (TryGetByAlpha(code, out result))
                 return true;
 
-            if (_numericregex.IsMatch(code))
-                return TryGetByNumeric(code, out result);
-            
             return false;
         }
 
