@@ -1,13 +1,13 @@
-﻿using NISOCountries.Core;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NISOCountries.Core;
 using NISOCountries.Core.SourceProviders;
 using NISOCountries.GeoNames;
 using NISOCountries.Ripe;
 using NISOCountries.Wikipedia;
-using csq = NISOCountries.Wikipedia.CSQ;
-using hap = NISOCountries.Wikipedia.HAP;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Text;
+using csq = NISOCountries.Wikipedia.CSQ;
+using hap = NISOCountries.Wikipedia.HAP;
 
 namespace NISOCountries.Tests
 {

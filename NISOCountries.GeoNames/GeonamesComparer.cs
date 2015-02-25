@@ -1,6 +1,4 @@
 ﻿using NISOCountries.Core;
-using System;
-using System.Collections.Generic;
 
 namespace NISOCountries.GeoNames
 {
