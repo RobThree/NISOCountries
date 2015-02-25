@@ -2,6 +2,7 @@
 using NISOCountries.Core.ValueNormalizers;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace NISOCountries.Core
 {
@@ -32,6 +33,16 @@ namespace NISOCountries.Core
             public T Normalize(T value)
             {
                 return value;
+            }
+
+            public NormalizationForm NormalizationForm
+            {
+                get { throw new NotImplementedException(); }
+            }
+
+            public NormalizeFlags NormalizeFlags
+            {
+                get { throw new NotImplementedException(); }
             }
         }
 

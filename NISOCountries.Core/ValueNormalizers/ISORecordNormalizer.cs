@@ -1,39 +1,31 @@
 ﻿using System;
+using System.Linq;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace NISOCountries.Core.ValueNormalizers
 {
-    public abstract class BaseNormalizer<T> : IValueNormalizer<T>
+    public class ISORecordNormalizer<T> : IValueNormalizer<T>
             where T : IISORecord, new()
     {
         private static Regex _stripmultiwhitespace = new Regex(@"\s{2,}", RegexOptions.Compiled | RegexOptions.CultureInvariant);
         private static Regex _stripsymbols = new Regex(@"[^\w\s]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
-        private NormalizationForm normalizationForm;
 
-        [Flags]
-        public enum NormalizeFlags
-        {
-            None = 0x0000,
+        public NormalizationForm NormalizationForm { get; private set; }
+        public NormalizeFlags NormalizeFlags { get; private set; }
 
-            Trim = 0x0001,
-            NormalizeUnicode = 0x0002,
-            StripMultiWhitespace = 0x0004,
-            StripSymbols = 0x0008,
-            ToUpper = 0x0010,
-            ToLower = 0x0020,
+        public ISORecordNormalizer()
+            : this(NormalizeFlags.All) { }
 
-            Default = Trim | NormalizeUnicode | StripMultiWhitespace,
-            All = 0xFFFF
-        }
+        public ISORecordNormalizer(NormalizeFlags normalizeFlags)
+            : this(normalizeFlags, NormalizationForm.FormC) { }
 
-        public BaseNormalizer()
-            : this(NormalizeFlags.All, NormalizationForm.FormC) { }
-
-        public BaseNormalizer(NormalizeFlags normalizeFlags, NormalizationForm normalizationForm)
+        public ISORecordNormalizer(NormalizeFlags normalizeFlags, NormalizationForm normalizationForm)
         {
             //http://unicode.org/reports/tr15/#Norm_Forms
-            this.normalizationForm = normalizationForm;
+            this.NormalizationForm = normalizationForm;
+            this.NormalizeFlags = normalizeFlags;
         }
 
         private static string StripMultiWhitespace(string value)
@@ -48,7 +40,7 @@ namespace NISOCountries.Core.ValueNormalizers
 
         private string NormalizeUnicode(string value)
         {
-            return value.Normalize(this.normalizationForm);
+            return value.Normalize(this.NormalizationForm);
         }
 
 
@@ -62,6 +54,13 @@ namespace NISOCountries.Core.ValueNormalizers
             return value.ToLowerInvariant();
         }
 
+        private static string RemoveDiacritics(string value)
+        {
+            value = value.Normalize(NormalizationForm.FormD);
+            var chars = value.Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark).ToArray();
+            return new string(chars).Normalize(NormalizationForm.FormC);
+        }
+
         protected string NormalizeString(string value)
         {
             return NormalizeString(value, NormalizeFlags.Default);
@@ -71,6 +70,9 @@ namespace NISOCountries.Core.ValueNormalizers
         {
             if (value == null)
                 return null;
+
+            if (normalizeFlags.HasFlag(NormalizeFlags.RemoveDiacritics))
+                value = RemoveDiacritics(value);
 
             if (normalizeFlags.HasFlag(NormalizeFlags.NormalizeUnicode))
                 value = NormalizeUnicode(value);
@@ -97,7 +99,7 @@ namespace NISOCountries.Core.ValueNormalizers
                 value.Alpha2 = NormalizeString(value.Alpha2, NormalizeFlags.Default | NormalizeFlags.ToUpper);
                 value.Alpha3 = NormalizeString(value.Alpha3, NormalizeFlags.Default | NormalizeFlags.ToUpper);
                 value.Numeric = NormalizeString(value.Numeric);
-                value.CountryName = NormalizeString(value.CountryName);
+                value.CountryName = NormalizeString(value.CountryName, this.NormalizeFlags);
             }
             return value;
         }
