@@ -8,5 +8,6 @@ namespace NISOCountries.Core
     {
         IValueNormalizer<T> ValueNormalizer { get; }
         IEnumerable<T> Parse(string filename);
+        IStreamParser<T> StreamParser { get; }
     }
 }

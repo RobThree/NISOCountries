@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WikipediaReader.cs" />
+    <Compile Include="WikipediaParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NISOCountries.Core\NISOCountries.Core.csproj">

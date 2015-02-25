@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GeonamesNormalizer.cs" />
-    <Compile Include="GeonamesReader.cs" />
+    <Compile Include="GeonamesParser.cs" />
     <Compile Include="GeonamesRecord.cs" />
     <Compile Include="GeonamesComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

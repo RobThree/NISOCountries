@@ -47,8 +47,9 @@
   <ItemGroup>
     <Compile Include="ISOCountryLookup.cs" />
     <Compile Include="ISORecordComparer.cs" />
+    <Compile Include="IStreamParser.cs" />
     <Compile Include="ValueNormalizers\ISORecordNormalizer.cs" />
-    <Compile Include="BaseReader.cs" />
+    <Compile Include="ISOCountryReader.cs" />
     <Compile Include="SourceProviders\FileSource.cs" />
     <Compile Include="IISORecord.cs" />
     <Compile Include="IISORecordReader.cs" />

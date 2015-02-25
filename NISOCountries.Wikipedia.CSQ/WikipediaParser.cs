@@ -1,38 +1,18 @@
 ﻿using CsQuery;
 using NISOCountries.Core;
-using NISOCountries.Core.SourceProviders;
-using NISOCountries.Core.ValueNormalizers;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace NISOCountries.Wikipedia.CSQ
 {
-    public class WikipediaReader : BaseReader<WikipediaRecord>
+    public class WikipediaParser : IStreamParser<WikipediaRecord>
     {
         public const string DEFAULTURL = @"https://en.wikipedia.org/wiki/ISO_3166-1";
 
-        public WikipediaReader()
-            : this(new WikipediaNormalizer()) { }
-
-        public WikipediaReader(IValueNormalizer<WikipediaRecord> valueNormalizer)
-            : this(valueNormalizer, new CachingWebSource())
-        { }
-
-        public WikipediaReader(ISourceProvider sourceProvider)
-            : this(new WikipediaNormalizer(), sourceProvider)
-        { }
-
-        public WikipediaReader(IValueNormalizer<WikipediaRecord> valueNormalizer, ISourceProvider sourceProvider)
-            : base(valueNormalizer, sourceProvider)
-        { }
-
-        public override IEnumerable<WikipediaRecord> Parse(string source)
+        public IEnumerable<WikipediaRecord> Parse(StreamReader streamReader)
         {
-            using (var s = this.SourceProvider.GetStreamReader(source))
-            {
-                return ExtractFromTables(s.ReadToEnd())
-                    .Select(v => this.ValueNormalizer.Normalize(v));
-            }
+            return ExtractFromTables(streamReader.ReadToEnd());
         }
 
         private IEnumerable<WikipediaRecord> ExtractFromTables(string html)
