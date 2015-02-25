@@ -8,6 +8,7 @@
     <owners>RobIII</owners>
     <projectUrl>https://github.com/RobThree/NISOCountries</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/NISOCountries.Ripe/Resources/ripe64.png</iconUrl>
+    <licenseUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>NISOCountries is a library for keeping your list of ISO 3611 data up-to-date. This package provides an implementation for ripe.net.</description>
     <summary>
