@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Core", "NISOCountries.Core\NISOCountries.Core.csproj", "{6505B207-697E-450B-9C71-87172FBF519B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A3FFEFEF-34B4-4E27-9B68-1502B9F2F51A}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.GeoNames", "NISOCountries.GeoNames\NISOCountries.GeoNames.csproj", "{D4303428-03D1-47FF-98D6-FC826B5ACC49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Wikipedia", "NISOCountries.Wikipedia\NISOCountries.Wikipedia.csproj", "{AA703FAE-19D7-4AB2-821B-DDEE971AFC52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Ripe", "NISOCountries.Ripe\NISOCountries.Ripe.csproj", "{E6E6DA7C-23B0-4B95-8906-94810734C049}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Tests", "NISOCountries.Tests\NISOCountries.Tests.csproj", "{D7129610-607B-46F2-8705-48CF13225D0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F751381E-9D2C-4986-9871-5828A232D0FC}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6505B207-697E-450B-9C71-87172FBF519B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6505B207-697E-450B-9C71-87172FBF519B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6505B207-697E-450B-9C71-87172FBF519B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6505B207-697E-450B-9C71-87172FBF519B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4303428-03D1-47FF-98D6-FC826B5ACC49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4303428-03D1-47FF-98D6-FC826B5ACC49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4303428-03D1-47FF-98D6-FC826B5ACC49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4303428-03D1-47FF-98D6-FC826B5ACC49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA703FAE-19D7-4AB2-821B-DDEE971AFC52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA703FAE-19D7-4AB2-821B-DDEE971AFC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA703FAE-19D7-4AB2-821B-DDEE971AFC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA703FAE-19D7-4AB2-821B-DDEE971AFC52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6E6DA7C-23B0-4B95-8906-94810734C049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E6DA7C-23B0-4B95-8906-94810734C049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E6DA7C-23B0-4B95-8906-94810734C049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E6DA7C-23B0-4B95-8906-94810734C049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7129610-607B-46F2-8705-48CF13225D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7129610-607B-46F2-8705-48CF13225D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7129610-607B-46F2-8705-48CF13225D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7129610-607B-46F2-8705-48CF13225D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
