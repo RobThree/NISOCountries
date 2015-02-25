@@ -52,7 +52,7 @@ namespace NISOCountries.Wikipedia
                         {
                             yield return new WikipediaRecord
                             {
-                                EnglishName = cells[0].LastChild.Cq().Text(),
+                                CountryName = cells[0].LastChild.Cq().Text(),
                                 Alpha2 = cells[1].Cq().Text(),
                                 Alpha3 = cells[2].Cq().Text(),
                                 Numeric = cells[3].Cq().Text(),

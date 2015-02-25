@@ -40,7 +40,7 @@ namespace NISOCountries.GeoNames
                         Alpha3 = v[1],
                         Numeric = v[2],
                         Fips = v[3],
-                        EnglishName = v[4]
+                        CountryName = v[4]
                     });
             }
         }

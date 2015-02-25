@@ -6,6 +6,6 @@ namespace NISOCountries.Core
         string Alpha2 { get; set; }
         string Alpha3 { get; set; }
         string Numeric { get; set; }
-        string EnglishName { get; set; }
+        string CountryName { get; set; }
     }
 }

@@ -66,6 +66,10 @@
       <Project>{e6e6da7c-23b0-4b95-8906-94810734c049}</Project>
       <Name>NISOCountries.Ripe</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NISOCountries.WikipediaHAP\NISOCountries.WikipediaHAP.csproj">
+      <Project>{b823a112-c7a2-4d4a-b6b3-2e748b9ac035}</Project>
+      <Name>NISOCountries.WikipediaHAP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NISOCountries.Wikipedia\NISOCountries.Wikipedia.csproj">
       <Project>{aa703fae-19d7-4ab2-821b-ddee971afc52}</Project>
       <Name>NISOCountries.Wikipedia</Name>

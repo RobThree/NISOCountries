@@ -37,7 +37,7 @@ namespace NISOCountries.Ripe
                     .Where(m => m.Success)
                     .Select(m => new RipeRecord
                     {
-                        EnglishName = m.Groups["name"].Value.Replace('\n', ' '),
+                        CountryName = m.Groups["name"].Value.Replace('\n', ' '),
                         Alpha2 = m.Groups["iso2"].Value,
                         Alpha3 = m.Groups["iso3"].Value,
                         Numeric = m.Groups["numeric"].Value,

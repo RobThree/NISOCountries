@@ -97,7 +97,7 @@ namespace NISOCountries.Core.ValueNormalizers
                 value.Alpha2 = NormalizeString(value.Alpha2, NormalizeFlags.Default | NormalizeFlags.ToUpper);
                 value.Alpha3 = NormalizeString(value.Alpha3, NormalizeFlags.Default | NormalizeFlags.ToUpper);
                 value.Numeric = NormalizeString(value.Numeric);
-                value.EnglishName = NormalizeString(value.EnglishName);
+                value.CountryName = NormalizeString(value.CountryName);
             }
             return value;
         }

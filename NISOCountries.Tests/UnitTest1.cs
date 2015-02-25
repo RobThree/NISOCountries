@@ -3,6 +3,7 @@ using NISOCountries.Core.SourceProviders;
 using NISOCountries.GeoNames;
 using NISOCountries.Ripe;
 using NISOCountries.Wikipedia;
+using hap = NISOCountries.WikipediaHAP;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,16 @@ namespace NISOCountries.Tests
         {
             var s = GetTestFileReader();
             var w = new WikipediaReader(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
+            var h = new hap.WikipediaReader(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
             var r = new RipeReader(s).Parse(@"Test\fixtures\ripe_testfile.txt");
             var g = new GeonamesReader(s).Parse(@"Test\fixtures\geonames_testfile.txt");
+
+            var xr = new ISORecord { };
+            var yr = new ISORecord { };
+            var cc = new ISORecordComparer<ISORecord>();
+            var cres = cc.Equals(xr, yr);
+
+            var qqq = w.OrderBy(c => c.Alpha2).Cast<ISORecord>().SequenceEqual(h.Cast<ISORecord>().OrderBy(q => q.Alpha2), new ISORecordComparer<ISORecord>());
 
             //var q = r.Cast<IISORecord>()
             //    .Union(w.Cast<IISORecord>())

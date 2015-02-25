@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ISOCountryLookup.cs" />
+    <Compile Include="ISORecordComparer.cs" />
     <Compile Include="ValueNormalizers\BaseNormalizer.cs" />
     <Compile Include="BaseReader.cs" />
     <Compile Include="SourceProviders\FileSource.cs" />
