@@ -63,25 +63,5 @@ namespace NISOCountries.Core
                     .Select(v => this.ValueNormalizer.Normalize(v));
             }
         }
-
-        public IEnumerable<IISORecord> ParseAsIISORecord(string source)
-        {
-            return this.Parse(source).Cast<IISORecord>();
-        }
     }
-
-    //public class ISOCountryReader : ISOCountryReader<IISORecord>
-    //{
-    //    public ISOCountryReader(IStreamParser<IISORecord> streamParser)
-    //        : base(streamParser) { }
-
-    //    public ISOCountryReader(IStreamParser<IISORecord> streamParser, IValueNormalizer<IISORecord> valueNormalizer)
-    //        : base(streamParser, valueNormalizer) { }
-
-    //    public ISOCountryReader(IStreamParser<IISORecord> streamParser, ISourceProvider sourceProvider)
-    //        : base(streamParser, sourceProvider) { }
-
-    //    public ISOCountryReader(IStreamParser<IISORecord> streamParser, IValueNormalizer<IISORecord> valueNormalizer, ISourceProvider sourceProvider)
-    //        : base(streamParser, valueNormalizer, sourceProvider) { }
-    //}
 }

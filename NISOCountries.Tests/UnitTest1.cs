@@ -4,6 +4,7 @@ using NISOCountries.Core.SourceProviders;
 using NISOCountries.GeoNames;
 using NISOCountries.Ripe;
 using NISOCountries.Wikipedia;
+using System.Linq;
 using System.Text;
 using csq = NISOCountries.Wikipedia.CSQ;
 using hap = NISOCountries.Wikipedia.HAP;
@@ -24,12 +25,9 @@ namespace NISOCountries.Tests
             var s = GetTestFileReader();
 
             var w = new ISOCountryReader<GeonamesRecord>(new GeonamesParser(), s).Parse(@"Test\fixtures\geonames_testfile.txt");
-            var d = new ISOCountryReader<GeonamesRecord>(new GeonamesParser(), s).ParseAsIISORecord(@"Test\fixtures\geonames_testfile.txt");
-
-            //var x = new ISOCountryReader<WikipediaRecord>(new csq.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
-            //var y = new ISOCountryReader<WikipediaRecord>(new hap.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
-            //var z = new ISOCountryReader<RipeRecord>(new RipeParser(), s).Parse(@"Test\fixtures\ripe_testfile.txt");
-
+            var x = new ISOCountryReader<WikipediaRecord>(new csq.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
+            var y = new ISOCountryReader<WikipediaRecord>(new hap.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
+            var z = new ISOCountryReader<RipeRecord>(new RipeParser(), s).Parse(@"Test\fixtures\ripe_testfile.txt");
 
             var stop = true;
 
