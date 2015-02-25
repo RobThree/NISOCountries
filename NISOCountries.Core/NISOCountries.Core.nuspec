@@ -9,6 +9,7 @@
     <projectUrl>https://github.com/RobThree/NISOCountries</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/NISOCountries.Core/Resources/ISO64.png</iconUrl>
     <licenseUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/LICENSE</licenseUrl>
+    <copyright>Copyright (c) 2015 Rob Janssen</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>NISOCountries is a library for keeping your list of ISO-3611 data up-to-date. This package provides baseclasses and interfaces.</description>
     <summary>
