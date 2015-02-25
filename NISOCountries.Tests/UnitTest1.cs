@@ -24,8 +24,6 @@ namespace NISOCountries.Tests
         {
             var s = GetTestFileReader();
 
-            var q = GeonamesParser.Default.Parse(GeonamesParser.DEFAULTURL);
-
             var w = new ISOCountryReader<GeonamesRecord>(new GeonamesParser(), s).Parse(@"Test\fixtures\geonames_testfile.txt");
             var x = new ISOCountryReader<WikipediaRecord>(new csq.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
             var y = new ISOCountryReader<WikipediaRecord>(new hap.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
