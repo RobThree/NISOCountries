@@ -24,12 +24,31 @@ namespace NISOCountries.Tests
         {
             var s = GetTestFileReader();
 
+            var q = GeonamesParser.Default.Parse(GeonamesParser.DEFAULTURL);
+
             var w = new ISOCountryReader<GeonamesRecord>(new GeonamesParser(), s).Parse(@"Test\fixtures\geonames_testfile.txt");
             var x = new ISOCountryReader<WikipediaRecord>(new csq.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
             var y = new ISOCountryReader<WikipediaRecord>(new hap.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
             var z = new ISOCountryReader<RipeRecord>(new RipeParser(), s).Parse(@"Test\fixtures\ripe_testfile.txt");
 
-            var stop = true;
+            var all = w.Cast<ISORecord>()
+                .Union(x)
+                .Union(y)
+                .Union(z);
+
+            var arr = all.ToArray();
+
+            var ww = new ISOCountryReader<GeonamesRecord>(new GeonamesParser()).Parse(GeonamesParser.DEFAULTURL);
+            var wx = new ISOCountryReader<WikipediaRecord>(new csq.WikipediaParser()).Parse(csq.WikipediaParser.DEFAULTURL);
+            var wy = new ISOCountryReader<WikipediaRecord>(new hap.WikipediaParser()).Parse(hap.WikipediaParser.DEFAULTURL);
+            var wz = new ISOCountryReader<RipeRecord>(new RipeParser()).Parse(RipeParser.DEFAULTURL);
+
+            var wall = ww.Cast<ISORecord>()
+                .Union(wx)
+                .Union(wy)
+                .Union(wz);
+
+            var warr = wall.ToArray();
 
             //var x = new ISOCountryReader<WikipediaRecord>(s);
             //var w = new csq.WikipediaParser(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");

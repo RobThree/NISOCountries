@@ -18,7 +18,7 @@ namespace NISOCountries.Core
             : this(streamParser, new DummyNormalizer()) { }
 
         public ISOCountryReader(IStreamParser<T> streamParser, IValueNormalizer<T> valueNormalizer)
-            : this(streamParser, valueNormalizer, new FileSource()) { }
+            : this(streamParser, valueNormalizer, new CachingWebSource()) { }
 
         public ISOCountryReader(IStreamParser<T> streamParser, ISourceProvider sourceProvider)
             : this(streamParser, new DummyNormalizer(), sourceProvider) { }
