@@ -9,14 +9,14 @@ Latest change: May 10 2013
 Country 					A 2 	A 3 	Number
 ----------------------------------------------------------------------
 
-ÅLAND ISLANDS 					AX 	ALA 	248
 AFGHANISTAN 					AF 	AFG 	004
-COSTA RICA 					CR 	CRI 	188
+ÅLAND ISLANDS 					AX 	ALA 	248
+SAINT BARTHÉLEMY				BL	BLM	652
 COTE D'IVOIRE 					CI 	CIV 	384
+COSTA RICA 					CR 	CRI 	188
 NETHERLANDS 					NL 	NLD 	528
 QATAR 						QA 	QAT 	634
 REUNION 					RE 	REU 	638
 ROMANIA 					RO 	ROU 	642
 RWANDA 						RW 	RWA 	646
-SAINT BARTHÉLEMY				BL	BLM	652
 UNITED STATES OF AMERICA			US 	USA 	840

@@ -36,6 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -50,8 +52,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="HAP.WikipediaTests.cs" />
+    <Compile Include="CSQ.WikipediaTests.cs" />
+    <Compile Include="GeonamesTests.cs" />
+    <Compile Include="ISOCountryLookupTests.cs" />
+    <Compile Include="RipeTests.cs" />
     <Compile Include="TestUtil.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
