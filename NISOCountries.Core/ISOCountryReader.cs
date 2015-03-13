@@ -7,7 +7,7 @@ using System.Text;
 
 namespace NISOCountries.Core
 {
-    public class ISOCountryReader<T> : IISOCountryReader<T>
+    public abstract class ISOCountryReader<T> : IISOCountryReader<T>
         where T : IISOCountry
     {
         public IValueNormalizer<T> ValueNormalizer { get; private set; }
@@ -63,5 +63,7 @@ namespace NISOCountries.Core
                     .Select(v => this.ValueNormalizer.Normalize(v));
             }
         }
+
+        public abstract IEnumerable<T> GetDefault();
     }
 }

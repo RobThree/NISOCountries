@@ -24,6 +24,11 @@ namespace NISOCountries.Tests
     {
         public TestCountryReader()
             : base(new TestParser(), new TestCountrySource()) { }
+
+        public override IEnumerable<TestCountry> GetDefault()
+        {
+            return this.Parse(null);
+        }
     }
 
     public class TestCountrySource : ISourceProvider

@@ -9,7 +9,7 @@ namespace NISOCountries.Tests
         [TestMethod]
         public void ISOCountryLookup_AutoDetectCode_WorksForAllCombinations()
         {
-            var target = new ISOCountryLookup<TestCountry>(new TestCountryReader(), null);
+            var target = new ISOCountryLookup<TestCountry>(new TestCountryReader().GetDefault());
 
             TestCountry result;
             Assert.IsTrue(target.TryGet("TC", out result));
@@ -29,7 +29,7 @@ namespace NISOCountries.Tests
         [TestMethod]
         public void ISOCountryLookup_AutoDetectCode_IsNotCaseSensitive()
         {
-            var target = new ISOCountryLookup<TestCountry>(new TestCountryReader(), null,true);
+            var target = new ISOCountryLookup<TestCountry>(new TestCountryReader().GetDefault(), true);
 
             TestCountry result;
             Assert.IsTrue(target.TryGet("TC", out result));
@@ -44,7 +44,7 @@ namespace NISOCountries.Tests
         [TestMethod]
         public void ISOCountryLookup_AutoDetectCode_IsCaseSensitive()
         {
-            var target = new ISOCountryLookup<TestCountry>(new TestCountryReader(), null, false);
+            var target = new ISOCountryLookup<TestCountry>(new TestCountryReader().GetDefault(), false);
 
             TestCountry result;
             Assert.IsTrue(target.TryGet("TC", out result));
