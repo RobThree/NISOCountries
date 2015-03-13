@@ -36,7 +36,7 @@ class Program
         var countries = new WikipediaISOCountryReader().GetDefault();
 
         //Voila!
-        Console.WriteLine(countries.Where(c => c.Alpha2 == "NL").First().CountryName);
+        Console.WriteLine(countries.Where(c => c.Alpha2 == "NL").Single().CountryName);
     }
 }
 ````
