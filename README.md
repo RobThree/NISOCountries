@@ -42,7 +42,7 @@ Usage is pretty straightforward. NISOCountries provides some convenience classes
 ````
 Output:
 ````
-NETHERLANDS
+Netherlands
 ````
 
 NISOCountries.Core provides an `ISOCountryLookup` class that offers methods to lookup countries by their alpha-2, alpha-3 and numeric codes (e.g. "US", "USA", "840") and even provides "autodetection" of the type of code and `TryGet()` methods to handle non-existing codes more easily:
