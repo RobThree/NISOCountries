@@ -3,7 +3,7 @@
   <metadata>
     <id>NISOCountries.Ripe</id>
     <title>NISOCountries.Ripe</title>
-    <version>1.1.0.0</version>
+    <version>1.1.1.0</version>
     <authors>RobIII</authors>
     <owners>RobIII</owners>
     <projectUrl>https://github.com/RobThree/NISOCountries</projectUrl>
@@ -16,7 +16,7 @@
       Provides classes and methods for reading ISO 3166-1 data from ripe.net.
     </summary>
     <releaseNotes>
-      * Initial version
+      * Fixed newline in GB
     </releaseNotes>
     <tags>iso3166,iso3166-1,country,globalization,ripe</tags>
     <dependencies>

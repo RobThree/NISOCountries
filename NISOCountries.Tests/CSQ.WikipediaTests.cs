@@ -16,7 +16,7 @@ namespace NISOCountries.Tests
                 .Parse(@"Test\fixtures\wikipedia_testfile.htm")
                 .ToArray();
 
-            Assert.AreEqual(11, target.Length);
+            Assert.AreEqual(12, target.Length);
             Assert.AreEqual("NL", target[5].Alpha2);
             Assert.AreEqual("NLD", target[5].Alpha3);
             Assert.AreEqual("528", target[5].Numeric);
