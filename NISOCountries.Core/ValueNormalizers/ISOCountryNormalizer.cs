@@ -15,7 +15,7 @@ namespace NISOCountries.Core.ValueNormalizers
         public NormalizeFlags NormalizeFlags { get; private set; }
 
         public ISOCountryNormalizer()
-            : this(NormalizeFlags.All) { }
+            : this(NormalizeFlags.Default) { }
 
         public ISOCountryNormalizer(NormalizeFlags normalizeFlags)
             : this(normalizeFlags, NormalizationForm.FormC) { }
