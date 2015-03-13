@@ -1,5 +1,6 @@
 ﻿using NISOCountries.Core;
 using NISOCountries.Core.SourceProviders;
+using NISOCountries.Core.ValueNormalizers;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -24,6 +25,9 @@ namespace NISOCountries.Tests
     {
         public TestCountryReader()
             : base(new TestParser(), new TestCountrySource()) { }
+
+        public TestCountryReader(IValueNormalizer<TestCountry> valueNormalizer)
+            : base(new TestParser(), valueNormalizer, new TestCountrySource()) { }
 
         public override IEnumerable<TestCountry> GetDefault()
         {
@@ -59,5 +63,20 @@ namespace NISOCountries.Tests
                 yield return c;
             streamReader.Close();
         }
+    }
+
+    public class TestLowercasingValueConverter : ISOCountryNormalizer<TestCountry>
+    {
+        public override TestCountry Normalize(TestCountry value)
+        {
+            return new TestCountry
+            {
+                Alpha2 = value.Alpha2.ToLowerInvariant(),
+                Alpha3 = value.Alpha3.ToLowerInvariant(),
+                CountryName = value.CountryName.ToLowerInvariant(),
+                Numeric = value.Numeric
+            };
+        }
+
     }
 }

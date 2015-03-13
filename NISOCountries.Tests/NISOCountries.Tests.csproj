@@ -55,6 +55,7 @@
     <Compile Include="HAP.WikipediaTests.cs" />
     <Compile Include="CSQ.WikipediaTests.cs" />
     <Compile Include="GeonamesTests.cs" />
+    <Compile Include="ISOCountryComparerTests.cs" />
     <Compile Include="ISOCountryLookupTests.cs" />
     <Compile Include="RipeTests.cs" />
     <Compile Include="TestUtil.cs" />
