@@ -8,7 +8,7 @@ This project provides a means of keeping your data up-to-date by retrieving the 
 Currently NISOCountries provides 4 packages that retrieve data from commonly used sources for ISO 3166-1 data:
 
 1. [NISOCountries.GeoNames](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.GeoNames) retrieves data from [geonames.org](http://geonames.org) (specifically: [countryInfo.txt](http://download.geonames.org/export/dump/countryInfo.txt))
-2. [NISOCountries.Ripe](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Ripe) retrieves data from [ripe.net](https://www.ripe.net/) (specifically: [iso3166-countrycodes.txt](ftp://ftp.ripe.net/iso3166-countrycodes.txt))
+2. [NISOCountries.Ripe](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Ripe) retrieves data from [ripe.net](https://www.ripe.net/) (specifically: [iso3166-countrycodes.txt](http://riii.me/ripe-iso3166))
 3. [NISOCountries.Wikipedia.CSQ](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Wikipedia.CSQ) retrieves data from [wikipedia](http://wikipedia.org/) (specifically [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1), using [CsQuery](https://github.com/jamietre/CsQuery))
 4. [NISOCountries.Wikipedia.HAP](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Wikipedia.HAP) retrieves data from [wikipedia](http://wikipedia.org/) (specifically [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1), using [Html Agility Pack](http://htmlagilitypack.codeplex.com/))
 
