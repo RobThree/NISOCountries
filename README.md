@@ -16,7 +16,7 @@ Everything is available as [NuGet package](https://www.nuget.org/packages?q=niso
 
 Implementing your very own dataprovider is simple so feel free to add to the above list your very own!
 
-**NOTE:** None of the above sources are 'official' and all of the above contain, sometimes subtly, different data. Which data you want to rely on is up to you.
+**NOTE:** None of the above sources are '[official](http://www.iso.org/iso/country_codes.htm)' and all of the above contain, sometimes subtly, different data. Which data you want to rely on is up to you.
 
 ## Basic Usage
 
