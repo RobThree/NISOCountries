@@ -6,16 +6,16 @@ using System.Linq;
 
 namespace NISOCountries.Wikipedia.CSQ
 {
-    public class WikipediaParser : IStreamParser<WikipediaRecord>
+    public class WikipediaParser : IStreamParser<WikipediaCountry>
     {
         public const string DEFAULTURL = @"https://en.wikipedia.org/wiki/ISO_3166-1";
 
-        public IEnumerable<WikipediaRecord> Parse(StreamReader streamReader)
+        public IEnumerable<WikipediaCountry> Parse(StreamReader streamReader)
         {
             return ExtractFromTables(streamReader.ReadToEnd());
         }
 
-        private IEnumerable<WikipediaRecord> ExtractFromTables(string html)
+        private IEnumerable<WikipediaCountry> ExtractFromTables(string html)
         {
             var doc = CQ.CreateDocument(html);
             foreach (var t in doc.Select("#bodyContent table.wikitable tbody"))
@@ -30,7 +30,7 @@ namespace NISOCountries.Wikipedia.CSQ
                         //Do we have enough data?
                         if (cells.Length >= 4)
                         {
-                            yield return new WikipediaRecord
+                            yield return new WikipediaCountry
                             {
                                 CountryName = cells[0].LastChild.Cq().Text(),
                                 Alpha2 = cells[1].Cq().Text(),

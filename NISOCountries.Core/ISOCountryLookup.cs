@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 namespace NISOCountries.Core
 {
     public class ISOCountryLookup<T>
-        where T : IISORecord
+        where T : IISOCountry
     {
-        private T[] _records;
+        private T[] _countries;
         private Dictionary<string, T> _alpha2;
         private Dictionary<string, T> _alpha3;
         private Dictionary<string, T> _numeric;
@@ -20,11 +20,11 @@ namespace NISOCountries.Core
 
         public bool IsCaseSensitive { get; private set; }
 
-        public ISOCountryLookup(IISORecordReader<T> recordreader, string source)
-            : this(recordreader.Parse(source)) { }
+        public ISOCountryLookup(IISOCountryReader<T> countryReader, string source)
+            : this(countryReader.Parse(source)) { }
 
-        public ISOCountryLookup(IISORecordReader<T> recordreader, string source, bool ignoreCase)
-            : this(recordreader.Parse(source), ignoreCase) { }
+        public ISOCountryLookup(IISOCountryReader<T> countryReader, string source, bool ignoreCase)
+            : this(countryReader.Parse(source), ignoreCase) { }
 
         public ISOCountryLookup(IEnumerable<T> countries)
             : this(countries, true) { }
@@ -34,12 +34,12 @@ namespace NISOCountries.Core
             this.IsCaseSensitive = !ignoreCase;
             var comparer = this.IsCaseSensitive ? StringComparer.Ordinal : StringComparer.OrdinalIgnoreCase;
 
-            _records = countries.ToArray();
+            _countries = countries.ToArray();
 
-            _alpha2 = _records.Where(r => !string.IsNullOrEmpty(r.Alpha2)).ToDictionary(r => r.Alpha2, comparer);
-            _alpha3 = _records.Where(r => !string.IsNullOrEmpty(r.Alpha3)).ToDictionary(r => r.Alpha3, comparer);
-            _numeric = _records.Where(r => !string.IsNullOrEmpty(r.Numeric)).ToDictionary(r => r.Numeric, comparer);
-            _numericasint = _records.Where(r => !string.IsNullOrEmpty(r.Numeric)).ToDictionary(r => int.Parse(r.Numeric));
+            _alpha2 = _countries.Where(r => !string.IsNullOrEmpty(r.Alpha2)).ToDictionary(r => r.Alpha2, comparer);
+            _alpha3 = _countries.Where(r => !string.IsNullOrEmpty(r.Alpha3)).ToDictionary(r => r.Alpha3, comparer);
+            _numeric = _countries.Where(r => !string.IsNullOrEmpty(r.Numeric)).ToDictionary(r => r.Numeric, comparer);
+            _numericasint = _countries.Where(r => !string.IsNullOrEmpty(r.Numeric)).ToDictionary(r => int.Parse(r.Numeric));
         }
 
         public bool TryGetByAlpha2(string alpha2, out T result)
@@ -140,6 +140,6 @@ namespace NISOCountries.Core
             return false;
         }
 
-        public IEnumerable<T> Values { get { return _records; } }
+        public IEnumerable<T> Values { get { return _countries; } }
     }
 }

@@ -3,7 +3,7 @@ using System.Text;
 namespace NISOCountries.Core.ValueNormalizers
 {
     public interface IValueNormalizer<T>
-        where T : IISORecord
+        where T : IISOCountry
     {
         NormalizationForm NormalizationForm { get; }
         NormalizeFlags NormalizeFlags { get; }

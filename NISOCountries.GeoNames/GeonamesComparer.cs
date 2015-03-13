@@ -2,7 +2,7 @@
 
 namespace NISOCountries.GeoNames
 {
-    public class GeonamesComparer : ISORecordComparer<GeonamesRecord>
+    public class GeonamesComparer : ISOCountryComparer<GeonamesCountry>
     {
         public GeonamesComparer()
             : base() { }
@@ -10,7 +10,7 @@ namespace NISOCountries.GeoNames
         public GeonamesComparer(bool ignoreCase)
             : base(ignoreCase) { }
 
-        public override bool Equals(GeonamesRecord x, GeonamesRecord y)
+        public override bool Equals(GeonamesCountry x, GeonamesCountry y)
         {
             // Let base handle reference equality etc.
             return base.Equals(x, y)
@@ -18,7 +18,7 @@ namespace NISOCountries.GeoNames
                 && string.Equals(x.Fips, y.Fips, this.StringComparison);
         }
 
-        public override int GetHashCode(GeonamesRecord obj)
+        public override int GetHashCode(GeonamesCountry obj)
         {
             if (obj == null)
                 return 0;

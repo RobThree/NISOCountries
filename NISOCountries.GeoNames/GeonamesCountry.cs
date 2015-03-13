@@ -2,7 +2,7 @@
 
 namespace NISOCountries.GeoNames
 {
-    public class GeonamesRecord : ISORecord
+    public class GeonamesCountry : ISOCountry
     {
         public string Fips { get; set; }
     }

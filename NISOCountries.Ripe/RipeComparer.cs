@@ -2,7 +2,7 @@
 
 namespace NISOCountries.Ripe
 {
-    public class RipeComparer : ISORecordComparer<RipeRecord>
+    public class RipeComparer : ISOCountryComparer<RipeCountry>
     {
         public RipeComparer()
             : base() { }
@@ -10,7 +10,7 @@ namespace NISOCountries.Ripe
         public RipeComparer(bool ignoreCase)
             : base(ignoreCase) { }
 
-        public override bool Equals(RipeRecord x, RipeRecord y)
+        public override bool Equals(RipeCountry x, RipeCountry y)
         {
             // Let base handle reference equality etc.
             return base.Equals(x, y)
@@ -20,7 +20,7 @@ namespace NISOCountries.Ripe
                 ;
         }
 
-        public override int GetHashCode(RipeRecord obj)
+        public override int GetHashCode(RipeCountry obj)
         {
             if (obj == null)
                 return 0;

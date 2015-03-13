@@ -52,7 +52,7 @@
     <Compile Include="WikipediaComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WikipediaNormalizer.cs" />
-    <Compile Include="WikipediaRecord.cs" />
+    <Compile Include="WikipediaCountry.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NISOCountries.Core\NISOCountries.Core.csproj">

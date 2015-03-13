@@ -24,34 +24,35 @@ namespace NISOCountries.Tests
         {
             var s = GetTestFileReader();
 
-            var w = new ISOCountryReader<GeonamesRecord>(new GeonamesParser(), s).Parse(@"Test\fixtures\geonames_testfile.txt");
-            var x = new ISOCountryReader<WikipediaRecord>(new csq.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
-            var y = new ISOCountryReader<WikipediaRecord>(new hap.WikipediaParser(), s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
-            var z = new ISOCountryReader<RipeRecord>(new RipeParser(), s).Parse(@"Test\fixtures\ripe_testfile.txt");
+            var w = new GeonamesISOCountryReader(s).Parse(@"Test\fixtures\geonames_testfile.txt");
+            var x = new csq.WikipediaISOCountryReader(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
+            var y = new hap.WikipediaISOCountryReader(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
+            var z = new RipeISOCountryReader(s).Parse(@"Test\fixtures\ripe_testfile.txt");
 
-            var all = w.Cast<ISORecord>()
+
+            var all = w.Cast<ISOCountry>()
                 .Union(x)
                 .Union(y)
                 .Union(z);
 
             var arr = all.ToArray();
 
-            //var ww = new ISOCountryReader<GeonamesRecord>(new GeonamesParser()).Parse(GeonamesParser.DEFAULTURL);
-            //var wx = new ISOCountryReader<WikipediaRecord>(new csq.WikipediaParser()).Parse(csq.WikipediaParser.DEFAULTURL);
-            //var wy = new ISOCountryReader<WikipediaRecord>(new hap.WikipediaParser()).Parse(hap.WikipediaParser.DEFAULTURL);
-            //var wz = new ISOCountryReader<RipeRecord>(new RipeParser()).Parse(RipeParser.DEFAULTURL);
+            //var ww = new ISOCountryReader<GeonamesCountry>(new GeonamesParser()).Parse(GeonamesParser.DEFAULTURL);
+            //var wx = new ISOCountryReader<WikipediaCountry>(new csq.WikipediaParser()).Parse(csq.WikipediaParser.DEFAULTURL);
+            //var wy = new ISOCountryReader<WikipediaCountry>(new hap.WikipediaParser()).Parse(hap.WikipediaParser.DEFAULTURL);
+            //var wz = new ISOCountryReader<RipeCountry>(new RipeParser()).Parse(RipeParser.DEFAULTURL);
 
-            //var wall = ww.Cast<ISORecord>()
+            //var wall = ww.Cast<ISOCountry>()
             //    .Union(wx)
             //    .Union(wy)
             //    .Union(wz);
 
             //var warr = wall.ToArray();
 
-            var x1 = new ISOCountryLookup<IISORecord>(w);
-            var x2 = new ISOCountryLookup<IISORecord>(x);
-            var x3 = new ISOCountryLookup<IISORecord>(y);
-            var x4 = new ISOCountryLookup<IISORecord>(z);
+            var x1 = new ISOCountryLookup<IISOCountry>(w);
+            var x2 = new ISOCountryLookup<IISOCountry>(x);
+            var x3 = new ISOCountryLookup<IISOCountry>(y);
+            var x4 = new ISOCountryLookup<IISOCountry>(z);
 
             var r1 = x1.GetByAlpha2("nl");
             var r2 = x1.GetByAlpha2("NL");
@@ -69,9 +70,9 @@ namespace NISOCountries.Tests
             var w2 = x1["NLD"];
             var w3 = x1["528"];
 
-            IISORecord result1;
-            IISORecord result2;
-            IISORecord result3;
+            IISOCountry result1;
+            IISOCountry result2;
+            IISOCountry result3;
             var q4 = x1.TryGet("NL", out result1);
             var q5 = x1.TryGet("NLD", out result2);
             var q6 = x1.TryGet("528", out result3);

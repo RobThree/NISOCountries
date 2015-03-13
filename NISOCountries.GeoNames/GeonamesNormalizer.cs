@@ -3,7 +3,7 @@ using System.Text;
 
 namespace NISOCountries.GeoNames
 {
-    public class GeonamesNormalizer : ISORecordNormalizer<GeonamesRecord>
+    public class GeonamesNormalizer : ISOCountryNormalizer<GeonamesCountry>
     {
         public GeonamesNormalizer()
             : base() { }
@@ -14,7 +14,7 @@ namespace NISOCountries.GeoNames
         public GeonamesNormalizer(NormalizeFlags normalizeFlags, NormalizationForm normalizationForm)
             : base(normalizeFlags, normalizationForm) { }
 
-        public override GeonamesRecord Normalize(GeonamesRecord value)
+        public override GeonamesCountry Normalize(GeonamesCountry value)
         {
             value = base.Normalize(value);
             value.Fips = NormalizeString(value.Fips, NormalizeFlags.Default | NormalizeFlags.ToUpper);

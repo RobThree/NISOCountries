@@ -2,7 +2,7 @@
 
 namespace NISOCountries.Wikipedia
 {
-    public class WikipediaRecord : ISORecord
+    public class WikipediaCountry : ISOCountry
     {
 
     }

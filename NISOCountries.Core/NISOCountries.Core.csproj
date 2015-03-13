@@ -46,14 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ISOCountryLookup.cs" />
-    <Compile Include="ISORecordComparer.cs" />
+    <Compile Include="ISOCountryComparer.cs" />
     <Compile Include="IStreamParser.cs" />
-    <Compile Include="ValueNormalizers\ISORecordNormalizer.cs" />
+    <Compile Include="ValueNormalizers\ISOCountryNormalizer.cs" />
     <Compile Include="ISOCountryReader.cs" />
     <Compile Include="SourceProviders\FileSource.cs" />
-    <Compile Include="IISORecord.cs" />
+    <Compile Include="IISOCountry.cs" />
     <Compile Include="IISORecordReader.cs" />
-    <Compile Include="ISORecord.cs" />
+    <Compile Include="ISOCountry.cs" />
     <Compile Include="SourceProviders\ISourceProvider.cs" />
     <Compile Include="ValueNormalizers\IValueNormalizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

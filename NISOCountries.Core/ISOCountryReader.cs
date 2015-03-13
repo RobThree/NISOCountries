@@ -7,8 +7,8 @@ using System.Text;
 
 namespace NISOCountries.Core
 {
-    public class ISOCountryReader<T> : IISORecordReader<T>
-        where T : IISORecord
+    public class ISOCountryReader<T> : IISOCountryReader<T>
+        where T : IISOCountry
     {
         public IValueNormalizer<T> ValueNormalizer { get; private set; }
         public ISourceProvider SourceProvider { get; private set; }

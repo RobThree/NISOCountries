@@ -1,7 +1,7 @@
 ﻿
 namespace NISOCountries.Core
 {
-    public interface IISORecord
+    public interface IISOCountry
     {
         string Alpha2 { get; set; }
         string Alpha3 { get; set; }

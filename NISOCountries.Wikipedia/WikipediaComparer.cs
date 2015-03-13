@@ -2,7 +2,7 @@
 
 namespace NISOCountries.Wikipedia
 {
-    public class WikipediaComparer : ISORecordComparer<WikipediaRecord>
+    public class WikipediaComparer : ISOCountryComparer<WikipediaCountry>
     {
         public WikipediaComparer()
             : base() { }
@@ -10,7 +10,7 @@ namespace NISOCountries.Wikipedia
         public WikipediaComparer(bool ignoreCase)
             : base(ignoreCase) { }
 
-        public override bool Equals(WikipediaRecord x, WikipediaRecord y)
+        public override bool Equals(WikipediaCountry x, WikipediaCountry y)
         {
             // Let base handle reference equality etc.
             return base.Equals(x, y)
@@ -20,7 +20,7 @@ namespace NISOCountries.Wikipedia
                 ;
         }
 
-        public override int GetHashCode(WikipediaRecord obj)
+        public override int GetHashCode(WikipediaCountry obj)
         {
             if (obj == null)
                 return 0;

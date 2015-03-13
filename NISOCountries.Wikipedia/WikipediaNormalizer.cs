@@ -3,7 +3,7 @@ using System.Text;
 
 namespace NISOCountries.Wikipedia
 {
-    public class WikipediaNormalizer : ISORecordNormalizer<WikipediaRecord>
+    public class WikipediaNormalizer : ISOCountryNormalizer<WikipediaCountry>
     {
         public WikipediaNormalizer()
             : base() { }

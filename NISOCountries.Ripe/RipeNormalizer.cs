@@ -3,7 +3,7 @@ using System.Text;
 
 namespace NISOCountries.Ripe
 {
-    public class RipeNormalizer : ISORecordNormalizer<RipeRecord>
+    public class RipeNormalizer : ISOCountryNormalizer<RipeCountry>
     {
         public RipeNormalizer()
             : base() { }

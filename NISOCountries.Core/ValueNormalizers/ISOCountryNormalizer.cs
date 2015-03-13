@@ -5,8 +5,8 @@ using System.Text.RegularExpressions;
 
 namespace NISOCountries.Core.ValueNormalizers
 {
-    public class ISORecordNormalizer<T> : IValueNormalizer<T>
-            where T : IISORecord, new()
+    public class ISOCountryNormalizer<T> : IValueNormalizer<T>
+            where T : IISOCountry, new()
     {
         private static Regex _stripmultiwhitespace = new Regex(@"\s{2,}", RegexOptions.Compiled | RegexOptions.CultureInvariant);
         private static Regex _stripsymbols = new Regex(@"[^\w\s]", RegexOptions.Compiled | RegexOptions.CultureInvariant);
@@ -14,13 +14,13 @@ namespace NISOCountries.Core.ValueNormalizers
         public NormalizationForm NormalizationForm { get; private set; }
         public NormalizeFlags NormalizeFlags { get; private set; }
 
-        public ISORecordNormalizer()
+        public ISOCountryNormalizer()
             : this(NormalizeFlags.All) { }
 
-        public ISORecordNormalizer(NormalizeFlags normalizeFlags)
+        public ISOCountryNormalizer(NormalizeFlags normalizeFlags)
             : this(normalizeFlags, NormalizationForm.FormC) { }
 
-        public ISORecordNormalizer(NormalizeFlags normalizeFlags, NormalizationForm normalizationForm)
+        public ISOCountryNormalizer(NormalizeFlags normalizeFlags, NormalizationForm normalizationForm)
         {
             //http://unicode.org/reports/tr15/#Norm_Forms
             this.NormalizationForm = normalizationForm;

@@ -2,7 +2,7 @@
 
 namespace NISOCountries.Ripe
 {
-    public class RipeRecord : ISORecord
+    public class RipeCountry : ISOCountry
     {
 
     }

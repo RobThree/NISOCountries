@@ -4,7 +4,7 @@ using System.IO;
 namespace NISOCountries.Core
 {
     public interface IStreamParser<T>
-        where T : IISORecord
+        where T : IISOCountry
 
     {
         IEnumerable<T> Parse(StreamReader streamReader);

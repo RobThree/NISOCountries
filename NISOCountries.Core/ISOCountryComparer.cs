@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace NISOCountries.Core
 {
-    public class ISORecordComparer<T> : IEqualityComparer<T>
-        where T : IISORecord
+    public class ISOCountryComparer<T> : IEqualityComparer<T>
+        where T : IISOCountry
     {
         private static string n = string.Empty;
 
         public bool IsCaseSensitive { get; private set; }
         protected StringComparison StringComparison { get { return this.IsCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase; } }
 
-        public ISORecordComparer()
+        public ISOCountryComparer()
             : this(true) { }
 
-        public ISORecordComparer(bool ignoreCase)
+        public ISOCountryComparer(bool ignoreCase)
         {
             this.IsCaseSensitive = !ignoreCase;
         }

@@ -5,17 +5,17 @@ using System.Linq;
 
 namespace NISOCountries.GeoNames
 {
-    public class GeonamesParser : IStreamParser<GeonamesRecord>
+    public class GeonamesParser : IStreamParser<GeonamesCountry>
     {
         public const string DEFAULTURL = @"http://download.geonames.org/export/dump/countryInfo.txt";
 
-        public IEnumerable<GeonamesRecord> Parse(StreamReader streamReader)
+        public IEnumerable<GeonamesCountry> Parse(StreamReader streamReader)
         {
             return streamReader.ReadAllLines()
                 .Where(l => !l.StartsWith("#"))
                 .Select(l => l.Split('\t'))
                 .Where(v => v.Length >= 5)
-                .Select(v => new GeonamesRecord
+                .Select(v => new GeonamesCountry
                 {
                     Alpha2 = v[0],
                     Alpha3 = v[1],
