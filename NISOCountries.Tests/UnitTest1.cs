@@ -1,11 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NISOCountries.Core;
-using NISOCountries.Core.SourceProviders;
 using NISOCountries.GeoNames;
 using NISOCountries.Ripe;
-using NISOCountries.Wikipedia;
 using System.Linq;
-using System.Text;
 using csq = NISOCountries.Wikipedia.CSQ;
 using hap = NISOCountries.Wikipedia.HAP;
 
@@ -14,15 +11,10 @@ namespace NISOCountries.Tests
     [TestClass]
     public class UnitTest1
     {
-        ISourceProvider GetTestFileReader(Encoding encoding = null)
-        {
-            return new FileSource(encoding ?? Encoding.UTF8);
-        }
-
         [TestMethod]
         public void Example()
         {
-            var s = GetTestFileReader();
+            var s = TestUtil.GetTestFileReader();
 
             var w = new GeonamesISOCountryReader(s).Parse(@"Test\fixtures\geonames_testfile.txt");
             var x = new csq.WikipediaISOCountryReader(s).Parse(@"Test\fixtures\wikipedia_testfile.htm");
@@ -36,18 +28,6 @@ namespace NISOCountries.Tests
                 .Union(z);
 
             var arr = all.ToArray();
-
-            //var ww = new ISOCountryReader<GeonamesCountry>(new GeonamesParser()).Parse(GeonamesParser.DEFAULTURL);
-            //var wx = new ISOCountryReader<WikipediaCountry>(new csq.WikipediaParser()).Parse(csq.WikipediaParser.DEFAULTURL);
-            //var wy = new ISOCountryReader<WikipediaCountry>(new hap.WikipediaParser()).Parse(hap.WikipediaParser.DEFAULTURL);
-            //var wz = new ISOCountryReader<RipeCountry>(new RipeParser()).Parse(RipeParser.DEFAULTURL);
-
-            //var wall = ww.Cast<ISOCountry>()
-            //    .Union(wx)
-            //    .Union(wy)
-            //    .Union(wz);
-
-            //var warr = wall.ToArray();
 
             var x1 = new ISOCountryLookup<IISOCountry>(w);
             var x2 = new ISOCountryLookup<IISOCountry>(x);
