@@ -23,22 +23,22 @@ Implementing your very own dataprovider is simple so feel free to add to the abo
 Usage is pretty straightforward. NISOCountries provides some convenience classes, methods etc. to hide most of the details you'll probably never use but more specific overloads, constructors etc. are available to tailor everything to your needs. The most basic 'hello world' example goes a little something like this:
 
 ````c#
-    //We choose, for this example, to use Wikipedia as source (using CsQuery)
-    using NISOCountries.Wikipedia.CSQ;
-    using System;
-    using System.Linq;
+  //We choose, for this example, to use Wikipedia as source (using CsQuery)
+using NISOCountries.Wikipedia.CSQ;
+using System;
+using System.Linq;
 
-    class Program
+class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            //Retrieve ISO 3166-1 data from Wikipedia
-            var countries = new WikipediaISOCountryReader().GetDefault();
+        //Retrieve ISO 3166-1 data from Wikipedia
+        var countries = new WikipediaISOCountryReader().GetDefault();
 
-            //Voila!
-            Console.WriteLine(countries.Where(c => c.Alpha2 == "NL").First().CountryName);
-        }
+        //Voila!
+        Console.WriteLine(countries.Where(c => c.Alpha2 == "NL").First().CountryName);
     }
+}
 ````
 Output:
 ````
@@ -48,29 +48,29 @@ Netherlands
 NISOCountries.Core provides an `ISOCountryLookup` class that offers methods to lookup countries by their alpha-2, alpha-3 and numeric codes (e.g. "US", "USA", "840") and even provides "autodetection" of the type of code and `TryGet()` methods to handle non-existing codes more easily:
 
 ````c#
-    var countries = new WikipediaISOCountryReader().GetDefault();
-    var lookup = new ISOCountryLookup<WikipediaCountry>(countries);
+var countries = new WikipediaISOCountryReader().GetDefault();
+var lookup = new ISOCountryLookup<WikipediaCountry>(countries);
 
-    //Use 'autodetection'
-    lookup.Get("US");
-    lookup.Get("USA");
-    lookup.Get("840");
+//Use 'autodetection'
+lookup.Get("US");
+lookup.Get("USA");
+lookup.Get("840");
 
-    //A bit more explicit:
-    lookup.GetByAlpha("US");
-    lookup.GetByAlpha("USA");
+//A bit more explicit:
+lookup.GetByAlpha("US");
+lookup.GetByAlpha("USA");
 
-    //Even more explicit:
-    lookup.GetByAlpha2("US");
-    lookup.GetByAlpha3("USA");
-    lookup.GetByNumeric("USA");
+//Even more explicit:
+lookup.GetByAlpha2("US");
+lookup.GetByAlpha3("USA");
+lookup.GetByNumeric("USA");
 
-    //TryGet methods
-    WikipediaCountry result;
-    lookup.TryGet("XX", out result);
-    lookup.TryGetByAlpha2("XX", out result);
-    lookup.TryGetByAlpha3("XXX", out result);
-    lookup.TryGetByNumeric("999", out result);
+//TryGet methods
+WikipediaCountry result;
+lookup.TryGet("XX", out result);
+lookup.TryGetByAlpha2("XX", out result);
+lookup.TryGetByAlpha3("XXX", out result);
+lookup.TryGetByNumeric("999", out result);
 ````
 
 ## Core
