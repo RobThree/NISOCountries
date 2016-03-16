@@ -63,7 +63,8 @@ lookup.GetByAlpha("USA");
 //Even more explicit:
 lookup.GetByAlpha2("US");
 lookup.GetByAlpha3("USA");
-lookup.GetByNumeric("USA");
+lookup.GetByNumeric("840");
+lookup.GetByNumeric(840);
 
 //TryGet methods
 WikipediaCountry result;
