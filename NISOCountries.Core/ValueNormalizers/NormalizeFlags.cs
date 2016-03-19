@@ -14,8 +14,9 @@ namespace NISOCountries.Core.ValueNormalizers
         ToUpper = 0x0010,
         ToLower = 0x0020,
         RemoveDiacritics = 0x0040,
+        ToTitleCase = 0x0080,
 
-        Default = Trim | NormalizeUnicode | StripMultiWhitespace,
+        Default = Trim | NormalizeUnicode | StripMultiWhitespace | ToTitleCase,
         All = 0xFFFF
     }
 }

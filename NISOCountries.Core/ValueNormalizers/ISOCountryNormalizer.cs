@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace NISOCountries.Core.ValueNormalizers
 {
@@ -84,6 +85,8 @@ namespace NISOCountries.Core.ValueNormalizers
                 value = ToUpper(value);
             else if (normalizeFlags.HasFlag(NormalizeFlags.ToLower))
                 value = ToLower(value);
+            else if (normalizeFlags.HasFlag(NormalizeFlags.ToTitleCase))
+                value = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(ToLower(value));
 
             if (normalizeFlags.HasFlag(NormalizeFlags.Trim))
                 value = value.Trim();
