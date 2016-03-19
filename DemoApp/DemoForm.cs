@@ -18,7 +18,7 @@ namespace DemoApp
 
         private void goButton_Click(object sender, EventArgs e)
         {
-            IEnumerable<ISOCountry> countries = null;
+            IEnumerable<IISOCountry> countries = null;
             switch (typeSelection.SelectedIndex)
             {
                 case 0:
@@ -34,7 +34,7 @@ namespace DemoApp
                     countries = new NISOCountries.Wikipedia.CSQ.WikipediaISOCountryReader().GetDefault();
                     break;
             }
-            dataGridView.DataSource = countries.ToArray();
+            dataGridView.DataSource = countries.OrderBy(c => c.Alpha2).ToArray();
             dataGridView.AutoResizeColumns();
         }
     }
