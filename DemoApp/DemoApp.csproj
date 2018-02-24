@@ -92,10 +92,6 @@
       <Project>{e6e6da7c-23b0-4b95-8906-94810734c049}</Project>
       <Name>NISOCountries.Ripe</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NISOCountries.Wikipedia.CSQ\NISOCountries.Wikipedia.CSQ.csproj">
-      <Project>{52ad50a5-75f4-4791-ad93-9c3743de41f2}</Project>
-      <Name>NISOCountries.Wikipedia.CSQ</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NISOCountries.Wikipedia.HAP\NISOCountries.Wikipedia.HAP.csproj">
       <Project>{b823a112-c7a2-4d4a-b6b3-2e748b9ac035}</Project>
       <Name>NISOCountries.Wikipedia.HAP</Name>

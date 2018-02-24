@@ -16,7 +16,7 @@ namespace DemoApp
             typeSelection.SelectedIndex = 0;
         }
 
-        private void goButton_Click(object sender, EventArgs e)
+        private void GoButton_Click(object sender, EventArgs e)
         {
             IEnumerable<IISOCountry> countries = null;
             switch (typeSelection.SelectedIndex)
@@ -29,9 +29,6 @@ namespace DemoApp
                     break;
                 case 2:
                     countries = new NISOCountries.Wikipedia.HAP.WikipediaISOCountryReader().GetDefault();
-                    break;
-                case 3:
-                    countries = new NISOCountries.Wikipedia.CSQ.WikipediaISOCountryReader().GetDefault();
                     break;
             }
             dataGridView.DataSource = countries.OrderBy(c => c.Alpha2).ToArray();

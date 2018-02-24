@@ -52,7 +52,6 @@
             this.typeSelection.Items.AddRange(new object[] {
             "Ripe",
             "Geonames",
-            "Wikipedia - CSQ",
             "Wikipedia - HAP"});
             this.typeSelection.Location = new System.Drawing.Point(12, 12);
             this.typeSelection.Name = "typeSelection";
@@ -67,7 +66,7 @@
             this.goButton.TabIndex = 2;
             this.goButton.Text = "Go";
             this.goButton.UseVisualStyleBackColor = true;
-            this.goButton.Click += new System.EventHandler(this.goButton_Click);
+            this.goButton.Click += new System.EventHandler(this.GoButton_Click);
             // 
             // DemoForm
             // 

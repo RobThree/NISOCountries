@@ -1,16 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Core", "NISOCountries.Core\NISOCountries.Core.csproj", "{6505B207-697E-450B-9C71-87172FBF519B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A3FFEFEF-34B4-4E27-9B68-1502B9F2F51A}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.GeoNames", "NISOCountries.GeoNames\NISOCountries.GeoNames.csproj", "{D4303428-03D1-47FF-98D6-FC826B5ACC49}"
 EndProject
@@ -22,20 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Tests", "NISO
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F751381E-9D2C-4986-9871-5828A232D0FC}"
 	ProjectSection(SolutionItems) = preProject
-		buildnugetpackages.cmd = buildnugetpackages.cmd
 		LICENSE = LICENSE
-		NISOCountries.Core\NISOCountries.Core.nuspec = NISOCountries.Core\NISOCountries.Core.nuspec
-		NISOCountries.GeoNames\NISOCountries.GeoNames.nuspec = NISOCountries.GeoNames\NISOCountries.GeoNames.nuspec
-		NISOCountries.Ripe\NISOCountries.Ripe.nuspec = NISOCountries.Ripe\NISOCountries.Ripe.nuspec
-		NISOCountries.Wikipedia.CSQ\NISOCountries.Wikipedia.CSQ.nuspec = NISOCountries.Wikipedia.CSQ\NISOCountries.Wikipedia.CSQ.nuspec
-		NISOCountries.Wikipedia.HAP\NISOCountries.Wikipedia.HAP.nuspec = NISOCountries.Wikipedia.HAP\NISOCountries.Wikipedia.HAP.nuspec
-		NISOCountries.Wikipedia\NISOCountries.Wikipedia.nuspec = NISOCountries.Wikipedia\NISOCountries.Wikipedia.nuspec
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Wikipedia.HAP", "NISOCountries.Wikipedia.HAP\NISOCountries.Wikipedia.HAP.csproj", "{B823A112-C7A2-4D4A-B6B3-2E748B9AC035}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NISOCountries.Wikipedia.CSQ", "NISOCountries.Wikipedia.CSQ\NISOCountries.Wikipedia.CSQ.csproj", "{52AD50A5-75F4-4791-AD93-9C3743DE41F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{04B9128F-C302-4D7A-9D3E-8E417DE9BE51}"
 EndProject
@@ -69,10 +53,6 @@ Global
 		{B823A112-C7A2-4D4A-B6B3-2E748B9AC035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B823A112-C7A2-4D4A-B6B3-2E748B9AC035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B823A112-C7A2-4D4A-B6B3-2E748B9AC035}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52AD50A5-75F4-4791-AD93-9C3743DE41F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52AD50A5-75F4-4791-AD93-9C3743DE41F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52AD50A5-75F4-4791-AD93-9C3743DE41F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52AD50A5-75F4-4791-AD93-9C3743DE41F2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{04B9128F-C302-4D7A-9D3E-8E417DE9BE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04B9128F-C302-4D7A-9D3E-8E417DE9BE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04B9128F-C302-4D7A-9D3E-8E417DE9BE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -80,5 +60,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDB04C7A-C5B6-4456-8FDC-850D6F014304}
 	EndGlobalSection
 EndGlobal
