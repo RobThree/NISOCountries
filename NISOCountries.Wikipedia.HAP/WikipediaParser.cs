@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using NISOCountries.Core;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,13 +22,13 @@ namespace NISOCountries.Wikipedia.HAP
             doc.LoadHtml(html);
             foreach (var t in QueryNodes(doc.DocumentNode, "//table[contains(@class, 'wikitable')]"))
             {
-                //TODO: Be a bit more selective on which tables to use (not only cells.length>4 but "scan" header-row for specific text for example)
+                //TODO: Be a bit more selective on which tables to use (not only cells.length>5 but "scan" header-row for specific text for example)
 
                 foreach (var r in QueryNodes(t, "tr"))
                 {
                     var cells = QueryNodes(r, "td").ToArray();
                     //Do we have enough data?
-                    if (cells.Length >= 4)
+                    if (cells.Length >= 5 && cells[4].InnerText.StartsWith("ISO 3166-2:", StringComparison.OrdinalIgnoreCase))
                     {
                         yield return new WikipediaCountry
                         {

@@ -12,10 +12,10 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/RobThree/NISOCountries</PackageProjectUrl>
     <PackageTags>iso3166,iso3166-1,country,globalization,wikipedia</PackageTags>
-    <PackageReleaseNotes>* Added netcore and netstandard support</PackageReleaseNotes>
+    <PackageReleaseNotes>* Fix to work with current Wikipedia page</PackageReleaseNotes>
     <Description>NISOCountries is a library for keeping your list of ISO 3166-1 data up-to-date. This package provides an implementation for wikipedia.org.</Description>
     <PackageIconUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/NISOCountries.Wikipedia/Resources/wikipedia64.png</PackageIconUrl>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
