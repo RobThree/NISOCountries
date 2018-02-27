@@ -9,14 +9,14 @@ namespace NISOCountries.Core
         private static string n = string.Empty;
 
         public bool IsCaseSensitive { get; private set; }
-        protected StringComparison StringComparison { get { return this.IsCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase; } }
+        protected StringComparison StringComparison { get { return IsCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase; } }
 
         public ISOCountryComparer()
             : this(true) { }
 
         public ISOCountryComparer(bool ignoreCase)
         {
-            this.IsCaseSensitive = !ignoreCase;
+            IsCaseSensitive = !ignoreCase;
         }
 
         public virtual bool Equals(T x, T y)
@@ -29,7 +29,7 @@ namespace NISOCountries.Core
             if (object.ReferenceEquals(x, null) || object.ReferenceEquals(y, null))
                 return false;
 
-            var sc = this.StringComparison;
+            var sc = StringComparison;
 
             // Compare properties
             return string.Equals(x.Alpha2, y.Alpha2, sc)
@@ -58,7 +58,7 @@ namespace NISOCountries.Core
 
         protected int GetStringHash(string value)
         {
-            if (this.IsCaseSensitive)
+            if (IsCaseSensitive)
                 return (value ?? n).GetHashCode();
             else
                 return (value ?? n).ToLowerInvariant().GetHashCode();

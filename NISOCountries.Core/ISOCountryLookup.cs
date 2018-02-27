@@ -31,8 +31,8 @@ namespace NISOCountries.Core
 
         public ISOCountryLookup(IEnumerable<T> countries, bool ignoreCase)
         {
-            this.IsCaseSensitive = !ignoreCase;
-            var comparer = this.IsCaseSensitive ? StringComparer.Ordinal : StringComparer.OrdinalIgnoreCase;
+            IsCaseSensitive = !ignoreCase;
+            var comparer = IsCaseSensitive ? StringComparer.Ordinal : StringComparer.OrdinalIgnoreCase;
 
             _countries = countries.ToArray();
 
@@ -111,7 +111,7 @@ namespace NISOCountries.Core
 
         public T this[string code]
         {
-            get { return this.Get(code); }
+            get { return Get(code); }
         }
 
         public T Get(string code)

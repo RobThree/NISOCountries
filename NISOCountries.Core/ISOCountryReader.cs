@@ -25,16 +25,9 @@ namespace NISOCountries.Core
 
         public ISOCountryReader(IStreamParser<T> streamParser, IValueNormalizer<T> valueNormalizer, ISourceProvider sourceProvider)
         {
-            if (valueNormalizer == null)
-                throw new ArgumentNullException("valueNormalizer");
-            if (sourceProvider == null)
-                throw new ArgumentNullException("sourceProvider");
-            if (streamParser == null)
-                throw new ArgumentNullException("streamParser");
-
-            this.ValueNormalizer = valueNormalizer;
-            this.SourceProvider = sourceProvider;
-            this.StreamParser = streamParser;
+            ValueNormalizer = valueNormalizer ?? throw new ArgumentNullException("valueNormalizer");
+            SourceProvider = sourceProvider ?? throw new ArgumentNullException("sourceProvider");
+            StreamParser = streamParser ?? throw new ArgumentNullException("streamParser");
         }
 
         private class DummyNormalizer : IValueNormalizer<T>
@@ -57,10 +50,10 @@ namespace NISOCountries.Core
 
         public IEnumerable<T> Parse(string source)
         {
-            using (var s = this.SourceProvider.GetStreamReader(source))
+            using (var s = SourceProvider.GetStreamReader(source))
             {
-                return this.StreamParser.Parse(s)
-                    .Select(v => this.ValueNormalizer.Normalize(v));
+                return StreamParser.Parse(s)
+                    .Select(v => ValueNormalizer.Normalize(v));
             }
         }
 

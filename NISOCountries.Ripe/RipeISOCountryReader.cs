@@ -6,6 +6,8 @@ namespace NISOCountries.Ripe
 {
     public class RipeISOCountryReader : ISOCountryReader<RipeCountry>
     {
+        public const string DEFAULTURL = @"ftp://ftp.ripe.net/iso3166-countrycodes.txt";
+
         public RipeISOCountryReader()
             : base(new RipeParser(), new RipeNormalizer()) { }
 
@@ -14,7 +16,7 @@ namespace NISOCountries.Ripe
 
         public override IEnumerable<RipeCountry> GetDefault()
         {
-            return this.Parse(@"ftp://ftp.ripe.net/iso3166-countrycodes.txt");
+            return Parse(DEFAULTURL);
 
         }
     }

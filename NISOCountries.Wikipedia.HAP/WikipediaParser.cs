@@ -9,8 +9,6 @@ namespace NISOCountries.Wikipedia.HAP
 {
     public class WikipediaParser : IStreamParser<WikipediaCountry>
     {
-        public const string DEFAULTURL = @"https://en.wikipedia.org/wiki/ISO_3166-1";
-
         public IEnumerable<WikipediaCountry> Parse(StreamReader streamReader)
         {
             return ExtractFromTables(streamReader.ReadToEnd());

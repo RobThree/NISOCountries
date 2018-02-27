@@ -6,6 +6,8 @@ namespace NISOCountries.GeoNames
 {
     public class GeonamesISOCountryReader : ISOCountryReader<GeonamesCountry>
     {
+        public const string DEFAULTURL = @"http://download.geonames.org/export/dump/countryInfo.txt";
+
         public GeonamesISOCountryReader()
             : base(new GeonamesParser(), new GeonamesNormalizer()) { }
 
@@ -14,7 +16,7 @@ namespace NISOCountries.GeoNames
 
         public override IEnumerable<GeonamesCountry> GetDefault()
         {
-            return this.Parse(@"http://download.geonames.org/export/dump/countryInfo.txt");
+            return Parse(DEFAULTURL);
         }
     }
 }

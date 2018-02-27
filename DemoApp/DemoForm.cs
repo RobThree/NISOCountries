@@ -30,6 +30,9 @@ namespace DemoApp
                 case 2:
                     countries = new NISOCountries.Wikipedia.HAP.WikipediaISOCountryReader().GetDefault();
                     break;
+                case 3:
+                    countries = new NISOCountries.Datahub.DatahubISOCountryReader().GetDefault();
+                    break;
             }
             dataGridView.DataSource = countries.OrderBy(c => c.Alpha2).ToArray();
             dataGridView.AutoResizeColumns();

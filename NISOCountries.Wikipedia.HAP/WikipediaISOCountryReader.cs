@@ -6,6 +6,8 @@ namespace NISOCountries.Wikipedia.HAP
 {
     public class WikipediaISOCountryReader : ISOCountryReader<WikipediaCountry>
     {
+        public const string DEFAULTURL = @"https://en.wikipedia.org/wiki/ISO_3166-1";
+
         public WikipediaISOCountryReader()
             : base(new WikipediaParser(), new WikipediaNormalizer()) { }
 
@@ -15,7 +17,7 @@ namespace NISOCountries.Wikipedia.HAP
 
         public override IEnumerable<WikipediaCountry> GetDefault()
         {
-            return this.Parse(@"https://en.wikipedia.org/wiki/ISO_3166-1");
+            return Parse(DEFAULTURL);
         }
     }
 }

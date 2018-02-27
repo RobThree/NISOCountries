@@ -31,7 +31,7 @@ namespace NISOCountries.Tests
 
         public override IEnumerable<TestCountry> GetDefault()
         {
-            return this.Parse(null);
+            return Parse(null);
         }
     }
 

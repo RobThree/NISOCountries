@@ -38,26 +38,26 @@ namespace NISOCountries.Core.SourceProviders
 
         public CachingWebSource(TimeSpan defaultTtl, Encoding encoding, TimeSpan timeOut)
         {
-            this.DefaultTTL = defaultTtl;
-            this.Encoding = encoding;
-            this.Timeout = timeOut;
+            DefaultTTL = defaultTtl;
+            Encoding = encoding;
+            Timeout = timeOut;
         }
 
         public StreamReader GetStreamReader(string uri)
         {
-            var tmpfile = this.DownloadFileFromCache(new Uri(uri), GetCacheFile(uri));
-            return new StreamReader(tmpfile, this.Encoding);
+            var tmpfile = DownloadFileFromCache(new Uri(uri), GetCacheFile(uri));
+            return new StreamReader(tmpfile, Encoding);
         }
 
         private string DownloadFileFromCache(Uri uri, string destinationpath)
         {
-            if (IsFileExpired(destinationpath, this.DefaultTTL))
+            if (IsFileExpired(destinationpath, DefaultTTL))
             {
-                using (var w = new TimedWebClient(this.Timeout))
+                using (var w = new TimedWebClient(Timeout))
                 {
-                    w.CachePolicy = this.CachePolicy;
-                    w.Credentials = this.Credentials;
-                    w.Proxy = this.Proxy;
+                    w.CachePolicy = CachePolicy;
+                    w.Credentials = Credentials;
+                    w.Proxy = Proxy;
                     w.Headers.Add(HttpRequestHeader.UserAgent, USERAGENT);
                     w.DownloadFile(uri, destinationpath);
                 }
@@ -94,13 +94,13 @@ namespace NISOCountries.Core.SourceProviders
 
             public TimedWebClient(TimeSpan timeout)
             {
-                this.Timeout = (int)Math.Max(0, timeout.TotalMilliseconds);
+                Timeout = (int)Math.Max(0, timeout.TotalMilliseconds);
             }
 
             protected override WebRequest GetWebRequest(Uri address)
             {
                 var wr = base.GetWebRequest(address);
-                wr.Timeout = this.Timeout;
+                wr.Timeout = Timeout;
                 return wr;
             }
         }

@@ -17,7 +17,7 @@ namespace NISOCountries.GeoNames
         public override GeonamesCountry Normalize(GeonamesCountry value)
         {
             value = base.Normalize(value);
-            value.Fips = NormalizeString(value.Fips, NormalizeFlags.Default | NormalizeFlags.ToUpper);
+            value.FIPS = NormalizeString(value.FIPS, NormalizeFlags.Default | NormalizeFlags.ToUpper);
             return value;
         }
     }

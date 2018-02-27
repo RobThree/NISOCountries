@@ -21,7 +21,7 @@ namespace NISOCountries.Tests
             Assert.AreEqual("NLD", target[5].Alpha3);
             Assert.AreEqual("528", target[5].Numeric);
             Assert.AreEqual("Netherlands", target[5].CountryName);
-            Assert.AreEqual("NL", target[5].Fips);
+            Assert.AreEqual("NL", target[5].FIPS);
         }
     }
 }

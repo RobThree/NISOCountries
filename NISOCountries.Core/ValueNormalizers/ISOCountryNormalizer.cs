@@ -24,8 +24,8 @@ namespace NISOCountries.Core.ValueNormalizers
         public ISOCountryNormalizer(NormalizeFlags normalizeFlags, NormalizationForm normalizationForm)
         {
             //http://unicode.org/reports/tr15/#Norm_Forms
-            this.NormalizationForm = normalizationForm;
-            this.NormalizeFlags = normalizeFlags;
+            NormalizationForm = normalizationForm;
+            NormalizeFlags = normalizeFlags;
         }
 
         private static string StripMultiWhitespace(string value)
@@ -40,7 +40,7 @@ namespace NISOCountries.Core.ValueNormalizers
 
         private string NormalizeUnicode(string value)
         {
-            return value.Normalize(this.NormalizationForm);
+            return value.Normalize(NormalizationForm);
         }
 
 
@@ -101,7 +101,7 @@ namespace NISOCountries.Core.ValueNormalizers
                 value.Alpha2 = NormalizeString(value.Alpha2, NormalizeFlags.Default | NormalizeFlags.ToUpper);
                 value.Alpha3 = NormalizeString(value.Alpha3, NormalizeFlags.Default | NormalizeFlags.ToUpper);
                 value.Numeric = NormalizeString(value.Numeric);
-                value.CountryName = NormalizeString(value.CountryName, this.NormalizeFlags);
+                value.CountryName = NormalizeString(value.CountryName, NormalizeFlags);
             }
             return value;
         }

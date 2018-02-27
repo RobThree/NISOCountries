@@ -15,7 +15,7 @@ namespace NISOCountries.GeoNames
             // Let base handle reference equality etc.
             return base.Equals(x, y)
                 // Compare properties
-                && string.Equals(x.Fips, y.Fips, this.StringComparison);
+                && string.Equals(x.FIPS, y.FIPS, StringComparison);
         }
 
         public override int GetHashCode(GeonamesCountry obj)
@@ -28,7 +28,7 @@ namespace NISOCountries.GeoNames
                 int hash = (int)2166136261;
                 string n = string.Empty;
                 hash = hash * 16777619 ^ base.GetHashCode(obj);
-                hash = hash * 16777619 ^ GetStringHash(obj.Fips);
+                hash = hash * 16777619 ^ GetStringHash(obj.FIPS);
                 return hash;
             }
         }

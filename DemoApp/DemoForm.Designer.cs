@@ -52,7 +52,8 @@
             this.typeSelection.Items.AddRange(new object[] {
             "Ripe",
             "Geonames",
-            "Wikipedia - HAP"});
+            "Wikipedia - HAP",
+            "Datahub"});
             this.typeSelection.Location = new System.Drawing.Point(12, 12);
             this.typeSelection.Name = "typeSelection";
             this.typeSelection.Size = new System.Drawing.Size(275, 21);

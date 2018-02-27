@@ -7,8 +7,6 @@ namespace NISOCountries.GeoNames
 {
     public class GeonamesParser : IStreamParser<GeonamesCountry>
     {
-        public const string DEFAULTURL = @"http://download.geonames.org/export/dump/countryInfo.txt";
-
         public IEnumerable<GeonamesCountry> Parse(StreamReader streamReader)
         {
             return streamReader.ReadAllLines()
@@ -20,7 +18,7 @@ namespace NISOCountries.GeoNames
                     Alpha2 = v[0],
                     Alpha3 = v[1],
                     Numeric = v[2],
-                    Fips = v[3],
+                    FIPS = v[3],
                     CountryName = v[4]
                 });
         }

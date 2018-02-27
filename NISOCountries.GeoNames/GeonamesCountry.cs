@@ -4,6 +4,6 @@ namespace NISOCountries.GeoNames
 {
     public class GeonamesCountry : ISOCountry
     {
-        public string Fips { get; set; }
+        public string FIPS { get; set; }
     }
 }

@@ -12,12 +12,12 @@ namespace NISOCountries.Core.SourceProviders
 
         public FileSource(Encoding encoding)
         {
-            this.Encoding = encoding;
+            Encoding = encoding;
         }
 
         public StreamReader GetStreamReader(string filename)
         {
-            return new StreamReader(filename, this.Encoding);
+            return new StreamReader(filename, Encoding);
         }
 
     }
