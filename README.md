@@ -5,12 +5,13 @@ On many occasions I needed a list of [ISO 3166-1 countrycodes](https://en.wikipe
 
 This project provides a means of keeping your data up-to-date by retrieving the latest data from the web or any other source provided. [NISOCounties.Core](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Core) provides a set of interfaces, basesclasses etc. that help you implement your own data provider tailored to your needs. It also provides a class to easily look up these ISO 3166-1 codes.
 
-Currently NISOCountries provides 4 packages that retrieve data from commonly used sources for ISO 3166-1 data:
+Currently NISOCountries provides 5 packages that retrieve data from commonly used sources for ISO 3166-1 data:
 
 1. [NISOCountries.GeoNames](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.GeoNames) retrieves data from [geonames.org](http://geonames.org) (specifically: [countryInfo.txt](http://download.geonames.org/export/dump/countryInfo.txt))
 2. [NISOCountries.Ripe](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Ripe) retrieves data from [ripe.net](https://www.ripe.net/) (specifically: [iso3166-countrycodes.txt](http://riii.me/ripe-iso3166))
-3. [NISOCountries.Wikipedia.CSQ](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Wikipedia.CSQ) retrieves data from [wikipedia](http://wikipedia.org/) (specifically [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1), using [CsQuery](https://github.com/jamietre/CsQuery))
+3. [NISOCountries.Wikipedia.CSQ](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Wikipedia.CSQ) retrieves data from [wikipedia](http://wikipedia.org/) (specifically [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1), using [CsQuery](https://github.com/jamietre/CsQuery)) - NO LONGER SUPPORTED / MAINTAINED since CsQuery doesn't support .Net Core / .Net Standard
 4. [NISOCountries.Wikipedia.HAP](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Wikipedia.HAP) retrieves data from [wikipedia](http://wikipedia.org/) (specifically [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1), using [Html Agility Pack](http://htmlagilitypack.codeplex.com/))
+5. [NISOCountries.Datahub](https://github.com/RobThree/NISOCountries/tree/master/NISOCountries.Datahub) retrieves data from [datahub.io](http://datahub.io/) (specifically [/core/country-codes](https://datahub.io/core/country-codes))
 
 Everything is available as [NuGet package](https://www.nuget.org/packages?q=nisocountries).
 
