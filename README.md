@@ -24,8 +24,8 @@ Implementing your very own dataprovider is simple so feel free to add to the abo
 Usage is pretty straightforward. NISOCountries provides some convenience classes, methods etc. to hide most of the details you'll probably never use but more specific overloads, constructors etc. are available to tailor everything to your needs. The most basic 'hello world' example goes a little something like this:
 
 ````c#
-  //We choose, for this example, to use Wikipedia as source (using CsQuery)
-using NISOCountries.Wikipedia.CSQ;
+//We choose, for this example, to use RIPE as source
+using NISOCountries.Ripe;
 using System;
 using System.Linq;
 
@@ -33,8 +33,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Retrieve ISO 3166-1 data from Wikipedia
-        var countries = new WikipediaISOCountryReader().GetDefault();
+        //Retrieve ISO 3166-1 data from RIPE
+        var countries = new RipeISOCountryReader().GetDefault();
 
         //Voila!
         Console.WriteLine(countries.Where(c => c.Alpha2 == "NL").Single().CountryName);
@@ -49,8 +49,8 @@ Netherlands
 NISOCountries.Core provides an `ISOCountryLookup` class that offers methods to lookup countries by their alpha-2, alpha-3 and numeric codes (e.g. "US", "USA", "840") and even provides "autodetection" of the type of code and `TryGet()` methods to handle non-existing codes more easily:
 
 ````c#
-var countries = new WikipediaISOCountryReader().GetDefault();
-var lookup = new ISOCountryLookup<WikipediaCountry>(countries);
+var countries = new RipeISOCountryReader().GetDefault();
+var lookup = new ISOCountryLookup<RipeCountry>(countries);
 
 //Use 'autodetection'
 lookup.Get("US");
@@ -68,7 +68,7 @@ lookup.GetByNumeric("840");
 lookup.GetByNumeric(840);
 
 //TryGet methods
-WikipediaCountry result;
+RipeCountry result;
 lookup.TryGet("XX", out result);
 lookup.TryGetByAlpha2("XX", out result);
 lookup.TryGetByAlpha3("XXX", out result);
@@ -79,7 +79,7 @@ lookup.TryGetByNumeric("999", out result);
 
 The NISOCountry.Core library provides all required baseclasses and interfaces to be implemented when implementing your own country-data provider. A dataprovider is set of objects that implement interfaces like the `IISOCountry`, `ISourceProvider` and `ISOCountryReader<T>`. An `ISOCountryReader<T>` is the object that handles reading the underlying data (using the `ISourceProvider` and `IStreamParser<T>`), normalizing the data (using an `IValueNormalizer<T>`) and returning the normalized data as `IEnumerable<T>` where `T` implements `IISOCountry`. This way, you can create objects that read data from the web, files or other sources, have specific normalization rules (for example: uppercase all names or strip diacritics or...) and return data the way *you* want it. The `ISOCountryLookup<T>` and some classes implementing `ISOCountryComparer<T>` etc. are all provided in the core and more specific implementations may, or can, be provided by the provider-specific packages.
 
-NISOCountries currently provides 4 implementations, as mentioned above, that provide guidance on how to implement your own dataprovider. Two of these implementations use Wikipedia and only differ in the way the data is extracted (using either CsQuery or the HtmlAgilityPack), one uses data from Ripe and one uses data from GeoNames.org. Some simple form of caching is built-in for these dataproviders to prevent the sources of the data being accessed too often ("play nice").
+NISOCountries currently provides 5 implementations, as mentioned above, that provide guidance on how to implement your own dataprovider. Two of these implementations use Wikipedia and only differ in the way the data is extracted (using either CsQuery or the HtmlAgilityPack), one uses data from Ripe and one uses data from GeoNames.org. Some simple form of caching is built-in for these dataproviders to prevent the sources of the data being accessed too often ("play nice").
 
 The library, or the packages if you will, is built to be extensible but still easy to use. There are many overloads and/or conveniencemethods that allow you to either be very specific in how you want to use the library and 'massaging' of the underlying data or to rely on default settings and keep it to a minimum.
 
