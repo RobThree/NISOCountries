@@ -11,10 +11,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/RobThree/NISOCountries</PackageProjectUrl>
-    <PackageTags>iso3166,iso3166-1,country,globalization,wikipedia</PackageTags>
-    <PackageReleaseNotes>* Fix to work with current Wikipedia page</PackageReleaseNotes>
-    <Description>NISOCountries is a library for keeping your list of ISO 3166-1 data up-to-date. This package provides an implementation for wikipedia.org.</Description>
-    <PackageIconUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/NISOCountries.Wikipedia/Resources/wikipedia64.png</PackageIconUrl>
+    <PackageTags>iso3166,iso3166-1,country,globalization,datahub</PackageTags>
+    <PackageReleaseNotes>* Initial release</PackageReleaseNotes>
+    <Description>NISOCountries is a library for keeping your list of ISO 3166-1 data up-to-date. This package provides an implementation for datahub.io</Description>
+    <PackageIconUrl>https://raw.githubusercontent.com/RobThree/NISOCountries/master/NISOCountries.Datahub/Resources/datahub64.png</PackageIconUrl>
     <Version>1.0.0</Version>
   </PropertyGroup>
 
